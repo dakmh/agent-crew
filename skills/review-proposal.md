@@ -51,7 +51,7 @@ Each persona must respond in character — voice, priorities, and concerns shoul
 
 ---
 
-### 🏛️ System Architect
+### 🏗️ System Architect
 
 [In-character analysis]
 
