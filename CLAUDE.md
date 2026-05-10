@@ -32,13 +32,27 @@ When the user invokes a skill by name (e.g. `/review-proposal`), Claude should:
 
 ## Available teams
 
+### Design teams
+
+Engaged before implementation — for exploring problem spaces, shaping features, and designing systems.
+
+| Team | File | Core members | Best for |
+|---|---|---|---|
+| Technical Discovery | `agents/teams/technical-discovery.md` | Project Owner, System Architect, Devil's Advocate, Domain Expert | Mapping an ambiguous problem space before design begins |
+| Feature Design | `agents/teams/feature-design.md` | Project Owner, System Architect, Senior Developer, Devil's Advocate | Shaping a feature into a buildable specification |
+| Architecture Design | `agents/teams/architecture-design.md` | System Architect, Staff / Principal Engineer, Devil's Advocate, Project Owner | Designing new systems or significant architectural changes |
+
+### Implementation & review teams
+
+Engaged during and after design — for planning builds, reviewing code, and validating infrastructure.
+
 | Team | File | Core members | Best for |
 |---|---|---|---|
 | General Review | `agents/teams/general-review.md` | System Architect, Devil's Advocate | Evaluating proposals, designs, approaches |
-| Implementation | `agents/teams/implementation.md` | Tech Lead, Senior Developer, DevOps/Platform Engineer, QA Engineer, Security Engineer | Implementation planning, readiness assessment, technical review |
-| DevOps / Automation | `agents/teams/devops-automation.md` | Build & Toolchain Engineer, DevOps/Platform Engineer, Senior Developer, Security Engineer | Build systems, CI/CD pipelines, meta-programming tooling |
-| Dev Environments | `agents/teams/dev-environments.md` | Systems/Infrastructure Engineer, DevOps/Platform Engineer, Senior Developer, Build & Toolchain Engineer | Local and remote developer environment design and reproducibility |
-| Server / Cloud Infrastructure | `agents/teams/server-cloud-infrastructure.md` | Systems/Infrastructure Engineer, DevOps/Platform Engineer, Security Engineer | Server topology, cloud architecture, multi-environment infrastructure |
+| Implementation | `agents/teams/implementation.md` | Tech Lead, Senior Developer, DevOps/Platform Engineer, QA Engineer, Security Engineer, Devil's Advocate | Implementation planning, readiness assessment, technical review |
+| DevOps / Automation | `agents/teams/devops-automation.md` | Build & Toolchain Engineer, DevOps/Platform Engineer, Senior Developer, Security Engineer, Devil's Advocate | Build systems, CI/CD pipelines, meta-programming tooling |
+| Dev Environments | `agents/teams/dev-environments.md` | Systems/Infrastructure Engineer, DevOps/Platform Engineer, Senior Developer, Build & Toolchain Engineer, Devil's Advocate | Local and remote developer environment design and reproducibility |
+| Server / Cloud Infrastructure | `agents/teams/server-cloud-infrastructure.md` | Systems/Infrastructure Engineer, DevOps/Platform Engineer, Security Engineer, Devil's Advocate | Server topology, cloud architecture, multi-environment infrastructure |
 | Security & Standards Review | `agents/teams/security-standards-review.md` | Security Engineer, Code Standards Reviewer, Senior Developer | Code-level security and standards conformance review |
 
 ## Stable personas
