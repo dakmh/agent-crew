@@ -55,6 +55,9 @@ agent-crew/
   skills/                          ← Invocable slash-command definitions
     review-proposal.md
     security-review.md
+    technical-discovery.md
+    feature-design.md
+    architecture-design.md
 ```
 
 ## Usage
