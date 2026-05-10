@@ -28,6 +28,7 @@ When the user invokes a skill by name (e.g. `/review-proposal`), Claude should:
 | Skill | Command | Description |
 |---|---|---|
 | Review Proposal | `/review-proposal` | Multi-persona evaluation of a technical proposal |
+| Security Review | `/security-review` | Code-level security and standards review; returns P0–P3 findings report |
 
 ## Available teams
 
