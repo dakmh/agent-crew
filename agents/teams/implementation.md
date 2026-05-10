@@ -15,6 +15,7 @@ This team is distinct from the pre-development planning team: it assumes the *wh
 | DevOps / Platform Engineer | `agents/stable/devops-platform-engineer.md` | Infrastructure, deployment pipeline, observability, operational readiness |
 | QA Engineer | `agents/stable/qa-engineer.md` | Test strategy, acceptance criteria completeness, quality gates |
 | Security Engineer | `agents/stable/security-engineer.md` | Threat model, secure implementation patterns, compliance |
+| Devil's Advocate | `agents/stable/devils-advocate.md` | Stress-tests the implementation approach, estimates, and assumptions before build starts |
 
 ## Optional members
 
@@ -40,6 +41,7 @@ Each persona evaluates the implementation from their own perspective independent
 3. **DevOps / Platform Engineer** — infrastructure requirements, deployment pipeline, observability needs
 4. **QA Engineer** — test strategy, acceptance criteria gaps, quality gates
 5. **Security Engineer** — threat model, security requirements, risk tiering
+6. **Devil's Advocate** — stress-tests the assumptions underlying the implementation approach; challenges estimates, scope boundaries, and dependencies treated as reliable
 
 Each persona responds fully in character. They do not soften concerns or defer to other personas — their independent view is the valuable input.
 
@@ -49,6 +51,7 @@ The Tech Lead reviews all responses and identifies:
 - Conflicts between personas that need resolution (e.g. a security requirement that conflicts with a performance approach)
 - Gaps that no persona has addressed
 - The overall implementation risk profile
+- DA's stress-test findings that warrant a change to the approach
 
 ### 4. Resolution
 For any conflicts or unresolved questions identified in integration, the relevant personas engage briefly to reach a position. The Tech Lead makes the final call if consensus isn't reached.
@@ -60,6 +63,8 @@ The Tech Lead produces a final structured output:
 - What can be resolved during implementation (with owner)
 - What is being consciously accepted as risk or debt
 - Overall readiness verdict: **Ready** / **Ready with conditions** / **Not ready**
+
+If the Devil's Advocate has unresolved concerns not addressed in the readiness assessment, they may append a dissent.
 
 ## Interaction model overrides
 
@@ -75,3 +80,4 @@ Individual skills may modify this model. Common overrides:
 - Genuine unresolved disagreement should be surfaced explicitly, not papered over with false consensus
 - The DevOps / Platform Engineer's infrastructure readiness criteria are a hard gate — implementation is not done if it cannot be deployed and monitored
 - Security Engineer's "must fix before shipping" items are non-negotiable blockers
+- The Devil's Advocate's role is to surface risks before build starts, not to block work — their concerns should be resolved or consciously accepted, not ignored

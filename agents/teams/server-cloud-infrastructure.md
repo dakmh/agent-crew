@@ -15,6 +15,7 @@ Distinct from the Dev Environments team in that it focuses on server and cloud i
 | Systems / Infrastructure Engineer | `agents/stable/systems-infrastructure-engineer.md` | Lead voice; infrastructure architecture, network design, environment topology, reliability |
 | DevOps / Platform Engineer | `agents/stable/devops-platform-engineer.md` | Deployment pipeline integration, observability infrastructure, operational readiness |
 | Security Engineer | `agents/stable/security-engineer.md` | Infrastructure security posture, network security, IAM, compliance at the platform layer |
+| Devil's Advocate | `agents/stable/devils-advocate.md` | Stress-tests infrastructure design assumptions; surfaces failure modes and optimistic thinking about reliability, cost, and operational complexity |
 
 ## Optional members
 
@@ -26,7 +27,7 @@ Distinct from the Dev Environments team in that it focuses on server and cloud i
 
 ## Default interaction model
 
-This team operates in a **lead analysis → specialist input → cross-examination → synthesis** model. Infrastructure decisions at this level have significant security and reliability implications, warranting the more rigorous cross-examination step.
+This team operates in a **lead analysis → specialist input → stress test → cross-examination → synthesis** model. Infrastructure decisions are high-stakes and hard to reverse, warranting both rigorous specialist input and explicit adversarial challenge before synthesis.
 
 ### 1. Context intake
 All personas review the infrastructure proposal, architecture diagram, or design brief.
@@ -40,25 +41,31 @@ In order:
 1. **DevOps / Platform Engineer** — deployment pipeline integration with the proposed infrastructure, observability infrastructure design, operational runbook implications, incident response and recovery procedures
 2. **Security Engineer** — infrastructure threat model, network security posture, IAM design, secrets management at the platform layer, compliance implications, and security controls at each infrastructure layer
 
-### 4. Cross-examination
+### 4. Stress test
+**Devil's Advocate** reviews the lead analysis and specialist input and stress-tests the design: challenges assumptions about reliability, cost, operational complexity, and failure modes; questions whether single points of failure have been fully identified; asks what happens when the design meets reality.
+
+### 5. Cross-examination
 The Security Engineer and Systems / Infrastructure Engineer address each other's key concerns directly. Infrastructure design and security posture are deeply interdependent — conflicts or tensions between them must be resolved explicitly, not left as parallel concerns.
 
 The DevOps / Platform Engineer addresses any operational concerns raised by the security or infrastructure analysis.
 
-### 5. Synthesis
+All three address the Devil's Advocate's key stress-test findings: which concerns are valid and how they will be mitigated, and which are acceptable risks.
+
+### 6. Synthesis
 The **Systems / Infrastructure Engineer** produces the final assessment:
 - Infrastructure design: what is sound, what needs revision
 - Security posture: gaps and required mitigations (drawing on Security Engineer input)
 - Reliability assessment: single points of failure, recovery design, observability coverage
 - Infrastructure-as-code coverage: what is defined in code, what is manual
 - Cost and resource governance assessment
+- Risks surfaced by the Devil's Advocate: resolved / accepted / requires redesign
 - Overall verdict: **Production-ready** / **Ready with conditions** / **Not ready — redesign required**
 
 ## Interaction model overrides
 
 - Skills focused specifically on infrastructure security review may elevate the Security Engineer to co-lead alongside the Systems / Infrastructure Engineer
 - When Domain Expert is activated, they provide input after the Security Engineer, focusing on domain-specific compliance and infrastructure requirements
-- For lightweight infrastructure reviews (e.g. adding a single service to an established architecture), the cross-examination step may be skipped
+- For lightweight infrastructure reviews (e.g. adding a single service to an established architecture), the stress test and cross-examination steps may be collapsed
 
 ## Notes
 
@@ -66,3 +73,4 @@ The **Systems / Infrastructure Engineer** produces the final assessment:
 - Disaster recovery is not optional — every production infrastructure design must include a defined RTO, RPO, and the infrastructure to meet them
 - Infrastructure-as-code is the expected standard — manual infrastructure must be explicitly justified and carries a documentation and reproducibility debt that must be tracked
 - Cost governance is a first-class concern, not an afterthought — ungoverned cloud resource growth is a reliability and financial risk
+- The Devil's Advocate is particularly valuable here: infrastructure decisions are hard to reverse and the blast radius of a wrong decision is large

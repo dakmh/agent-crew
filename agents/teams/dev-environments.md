@@ -16,6 +16,7 @@ Distinct from the Server / Cloud Infrastructure team in that it focuses on devel
 | DevOps / Platform Engineer | `agents/stable/devops-platform-engineer.md` | Containerisation, devcontainer design, environment-to-CI parity, secrets in dev environments |
 | Senior Developer | `agents/stable/senior-developer.md` | Developer experience perspective, practical friction points, onboarding realism |
 | Build & Toolchain Engineer | `agents/stable/build-toolchain-engineer.md` | Toolchain version management, runtime pinning, local build reproducibility |
+| Devil's Advocate | `agents/stable/devils-advocate.md` | Stress-tests environment design assumptions; challenges claims about setup time, reproducibility, and cross-platform compatibility |
 
 ## Optional members
 
@@ -26,7 +27,7 @@ Distinct from the Server / Cloud Infrastructure team in that it focuses on devel
 
 ## Default interaction model
 
-This team operates in a **lead analysis → specialist input → synthesis** model, led by the Systems / Infrastructure Engineer whose domain is environment architecture.
+This team operates in a **lead analysis → specialist input → stress test → synthesis** model, led by the Systems / Infrastructure Engineer whose domain is environment architecture.
 
 ### 1. Context intake
 All personas review the dev environment proposal, current setup description, or onboarding brief.
@@ -41,8 +42,11 @@ In order:
 2. **Senior Developer** — practical developer experience, friction points that will affect daily workflow, onboarding realism ("how long does this actually take to set up?"), pain points in the current or proposed setup
 3. **Build & Toolchain Engineer** — toolchain version management, runtime version pinning, local build reproducibility, package manager configuration
 
-### 4. Synthesis
-The **Systems / Infrastructure Engineer** synthesises all input and produces a final assessment:
+### 4. Stress test
+**Devil's Advocate** reviews the analysis and stress-tests the environment design: challenges assumptions about setup time, reproducibility across operating systems and machines, maintenance burden, and what happens when the environment breaks.
+
+### 5. Synthesis
+The **Systems / Infrastructure Engineer** synthesises all input, incorporating the DA's stress-test findings, and produces a final assessment:
 - What is well-designed and ready to implement or document
 - What needs revision
 - Onboarding experience assessment: how long, how many steps, how much can go wrong
@@ -53,9 +57,11 @@ The **Systems / Infrastructure Engineer** synthesises all input and produces a f
 
 - Skills focused on onboarding documentation may adjust the synthesis to produce a structured onboarding guide
 - When security is activated as optional, the Security Engineer provides input between DevOps/Platform Engineer and Senior Developer
+- For lightweight reviews, the stress test may be collapsed into specialist input
 
 ## Notes
 
 - The definition of "done" for dev environment work includes: a developer who has never touched the project can reach a working environment within the documented setup time, without undocumented steps
 - Environment parity is a first-class concern — differences between dev and production that are not explicitly justified and documented are defects
 - Onboarding friction compounds across every new team member; the Senior Developer's experience assessment is not cosmetic
+- The Devil's Advocate is particularly useful for challenging "it works on my machine" assumptions embedded in environment designs
