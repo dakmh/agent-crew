@@ -105,7 +105,7 @@ They may also be set as defaults in team or skill definitions.
 
 - Personas are self-contained and make no assumptions about the task
 - Teams define *who* participates and *how* they interact — not *what* the task is
-- Skills define the task, deliverable, and output format — they may override team interaction models for specific needs
+- Skills define the task, deliverable, and output format — format may be specified directly in the skill file or delegated to the team file; they may also override team interaction models for specific needs
 - When a skill says a persona should "respond in character", Claude should adopt that persona's voice, biases, and concerns authentically — not just label a section with their name
 - Some teams define **optional members** — personas not included by default but available for specific task types; skills may activate them explicitly
 - The Domain Expert infers domain from context if not specified, and states that inference openly so it can be corrected

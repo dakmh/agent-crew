@@ -65,36 +65,7 @@ Each persona must respond in character — voice, priorities, and concerns shoul
 
 ## Output format
 
-Use the output format defined in `agents/teams/security-standards-review.md`:
-
-```
-## Security & Standards Review: [code / component name]
-
-### Summary
-[2-3 sentence overall assessment]
-
-### Findings
-
-#### P0 — Blockers
-[Each finding: description, location, risk/impact, required fix]
-
-#### P1 — Required
-[Each finding: description, location, risk/impact, required fix]
-
-#### P2 — Recommended
-[Each finding: description, location, improvement rationale, suggested approach]
-
-#### P3 — Noted
-[Each finding: brief description and location]
-
-### Systemic Patterns
-[Any findings that appear repeatedly, indicating a systemic issue rather than isolated instances]
-
-### Verdict
-**Security posture:** [Acceptable / Needs work / Unacceptable]
-**Standards conformance:** [Conformant / Minor gaps / Non-conformant]
-**Overall:** [Approved / Approved with conditions / Not approved]
-```
+Use the output format defined in `agents/teams/security-standards-review.md`.
 
 If no findings exist in a tier, omit that tier rather than printing an empty section.
 
