@@ -32,8 +32,20 @@ When the user invokes a skill by name (e.g. `/review-proposal`), Claude should:
 | Technical Discovery | `/technical-discovery` | Maps an ambiguous problem space; returns a structured discovery report before design begins |
 | Feature Design | `/feature-design` | Shapes a feature into a buildable specification with acceptance criteria and readiness verdict |
 | Architecture Design | `/architecture-design` | Designs new systems or significant architectural changes; returns recommended architecture with rationale |
+| Project Planning | `/project-planning` | Produces a prioritised plan for a sprint, quarter, or roadmap segment with rationale, trade-offs, and success metrics |
+| Mobile Feature Design | `/mobile-feature-design` | Shapes a mobile feature into a buildable specification; extends feature design with platform, app store, and offline concerns |
+| Mobile Implementation Review | `/mobile-implementation-review` | Reviews mobile implementation readiness across platform correctness, CI/CD, test coverage, and security |
+| Release Planning | `/release-planning` | Produces a release plan with go/no-go verdict, rollback plan, and communication plan; handles mobile app store releases |
 
 ## Available teams
+
+### Planning teams
+
+Engaged before design — for deciding what to build, in what order, and why.
+
+| Team | File | Core members | Best for |
+|---|---|---|---|
+| Project Planning | `agents/teams/project-planning.md` | Product Manager, Project Owner, Tech Lead, Devil's Advocate | Prioritising a backlog, sprint planning, roadmap decisions |
 
 ### Design teams
 
@@ -53,10 +65,12 @@ Engaged during and after design — for planning builds, reviewing code, and val
 |---|---|---|---|
 | General Review | `agents/teams/general-review.md` | System Architect, Devil's Advocate | Evaluating proposals, designs, approaches |
 | Implementation | `agents/teams/implementation.md` | Tech Lead, Senior Developer, DevOps/Platform Engineer, QA Engineer, Security Engineer, Devil's Advocate | Implementation planning, readiness assessment, technical review |
+| Mobile Development | `agents/teams/mobile-development.md` | Mobile App Developer, Senior Developer, UX Reviewer, DevOps/Platform Engineer, QA Engineer, Security Engineer, Devil's Advocate | Mobile feature implementation, app store readiness, platform-specific review |
 | DevOps / Automation | `agents/teams/devops-automation.md` | Build & Toolchain Engineer, DevOps/Platform Engineer, Senior Developer, Security Engineer, Devil's Advocate | Build systems, CI/CD pipelines, meta-programming tooling |
 | Dev Environments | `agents/teams/dev-environments.md` | Systems/Infrastructure Engineer, DevOps/Platform Engineer, Senior Developer, Build & Toolchain Engineer, Devil's Advocate | Local and remote developer environment design and reproducibility |
 | Server / Cloud Infrastructure | `agents/teams/server-cloud-infrastructure.md` | Systems/Infrastructure Engineer, DevOps/Platform Engineer, Security Engineer, Devil's Advocate | Server topology, cloud architecture, multi-environment infrastructure |
 | Security & Standards Review | `agents/teams/security-standards-review.md` | Security Engineer, Code Standards Reviewer, Senior Developer | Code-level security and standards conformance review |
+| Release Management | `agents/teams/release-management.md` | Release Manager, Tech Lead, DevOps/Platform Engineer, QA Engineer, Devil's Advocate | Release coordination, go/no-go gating, rollback planning; mobile app store releases |
 
 ## Stable personas
 
@@ -68,6 +82,7 @@ Engaged during and after design — for planning builds, reviewing code, and val
 | Staff / Principal Engineer | `agents/stable/staff-principal-engineer.md` | Cross-system coherence, org-level technical strategy, long time horizons |
 | System Architect | `agents/stable/system-architect.md` | Structural soundness, long-term design |
 | Domain Expert | `agents/stable/domain-expert.md` | Real-world domain constraints (inferred or specified) |
+| Product Manager | `agents/stable/product-manager.md` | Roadmap ownership, evidence-based prioritisation, product bets and outcomes |
 | Project Owner | `agents/stable/project-owner.md` | User value, scope discipline, business outcomes |
 | Devil's Advocate | `agents/stable/devils-advocate.md` | Assumption stress-testing, failure scenarios |
 | QA Engineer | `agents/stable/qa-engineer.md` | Test strategy, quality gates, acceptance criteria completeness |
@@ -78,6 +93,8 @@ Engaged during and after design — for planning builds, reviewing code, and val
 | Code Standards Reviewer | `agents/stable/code-standards-reviewer.md` | Standards conformance, naming, pattern consistency, maintainability |
 | UX Reviewer | `agents/stable/ux-reviewer.md` | Usability, accessibility, user flows (opt-in for UI tasks) |
 | Consolidation Architect | `agents/stable/consolidation-architect.md` | Cross-domain pattern recognition, duplication elimination, shared abstractions |
+| Mobile App Developer | `agents/stable/mobile-app-developer.md` | iOS/Android platform constraints, app store viability, mobile CI/CD, device diversity, offline handling |
+| Release Manager | `agents/stable/release-manager.md` | Release coordination, go/no-go gating, rollback planning, versioning, app store submission |
 
 ## Modifiers
 
