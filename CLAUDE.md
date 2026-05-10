@@ -29,6 +29,9 @@ When the user invokes a skill by name (e.g. `/review-proposal`), Claude should:
 |---|---|---|
 | Review Proposal | `/review-proposal` | Multi-persona evaluation of a technical proposal |
 | Security Review | `/security-review` | Code-level security and standards review; returns P0–P3 findings report |
+| Technical Discovery | `/technical-discovery` | Maps an ambiguous problem space; returns a structured discovery report before design begins |
+| Feature Design | `/feature-design` | Shapes a feature into a buildable specification with acceptance criteria and readiness verdict |
+| Architecture Design | `/architecture-design` | Designs new systems or significant architectural changes; returns recommended architecture with rationale |
 
 ## Available teams
 
