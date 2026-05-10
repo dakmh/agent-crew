@@ -42,6 +42,9 @@ agent-crew/
       dev-environments.md
       server-cloud-infrastructure.md
       security-standards-review.md
+      technical-discovery.md
+      feature-design.md
+      architecture-design.md
     modifiers/                     ← Lightweight overlays that adjust persona disposition
       optimistic.md
       pessimistic.md
@@ -51,6 +54,7 @@ agent-crew/
       move-fast.md
   skills/                          ← Invocable slash-command definitions
     review-proposal.md
+    security-review.md
 ```
 
 ## Usage
