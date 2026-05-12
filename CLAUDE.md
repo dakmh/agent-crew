@@ -121,6 +121,11 @@ They may also be set as defaults in team or skill definitions.
 | Cautious | `agents/modifiers/cautious.md` | Prefers reversible decisions; wants validation before commitment; incremental by default | `move-fast` |
 | Move Fast | `agents/modifiers/move-fast.md` | Biased to action; accepts higher uncertainty; ships and learns | `cautious` |
 
+## Session rules
+
+- At the start of each session, read `lessons.md` before doing anything else.
+- Whenever you make a mistake and the user corrects you, append a concise rule to `lessons.md` that would prevent that mistake in future sessions.
+
 ## Conventions
 
 - Personas are self-contained and make no assumptions about the task
