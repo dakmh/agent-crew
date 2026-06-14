@@ -95,6 +95,11 @@ Engaged during and after design — for planning builds, reviewing code, and val
 | Consolidation Architect | `agents/stable/consolidation-architect.md` | Cross-domain pattern recognition, duplication elimination, shared abstractions |
 | Mobile App Developer | `agents/stable/mobile-app-developer.md` | iOS/Android platform constraints, app store viability, mobile CI/CD, device diversity, offline handling |
 | Release Manager | `agents/stable/release-manager.md` | Release coordination, go/no-go gating, rollback planning, versioning, app store submission |
+| Digital Fabrication Engineer | `agents/stable/digital-fabrication-engineer.md` | Laser/CNC cutting constraints — kerf compensation, joint geometry, material tolerances, cut layout |
+| Inkscape Extension Developer | `agents/stable/inkscape-extension-developer.md` | `inkex`/INX API correctness, Inkscape version compatibility, extension packaging |
+| Woodworking / Joinery Specialist | `agents/stable/woodworking-joinery-specialist.md` | Physical assembly, joint strength, wood movement, build sequencing |
+| 2D Vector Graphics Engineer | `agents/stable/2d-vector-graphics-engineer.md` | Path/curve correctness, winding & fill rules, boolean ops, scale-independent vector assets |
+| 3D Vector Graphics Engineer | `agents/stable/3d-vector-graphics-engineer.md` | Transform/coordinate conventions, mesh integrity, interchange formats, engine integration |
 
 ## Modifiers
 

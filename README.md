@@ -119,6 +119,11 @@ agent-crew/
       consolidation-architect.md
       mobile-app-developer.md
       release-manager.md
+      digital-fabrication-engineer.md
+      inkscape-extension-developer.md
+      woodworking-joinery-specialist.md
+      2d-vector-graphics-engineer.md
+      3d-vector-graphics-engineer.md
     teams/                         ← Named team compositions + interaction models
       project-planning.md
       general-review.md
