@@ -1,6 +1,6 @@
 # agent-crew Optimization Plan
 
-**Status:** Proposed — no structural changes applied yet
+**Status:** Phase 1 (deduplication) complete; Phases 2–3 pending
 **Scope:** Full-repo analysis of personas, teams, modifiers, and skills; plus a model-routing
 layer for Opus-default execution with selective Fable escalation.
 
