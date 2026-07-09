@@ -8,46 +8,23 @@
 
 Maps an ambiguous problem space before any design is committed. Takes a problem statement and returns a structured discovery report: what is known, what is unknown, what options exist, and what must be resolved before design can begin.
 
-No external dependencies — context is provided by the user directly.
-
 ## Team
 
 `agents/teams/technical-discovery.md`
 
-Uses the default Technical Discovery interaction model unless overridden below.
+## Interaction model
 
-## Interaction model overrides
+Follow the team's default interaction model in `agents/teams/technical-discovery.md`. The shared protocol in `skills/_conventions.md` applies.
 
-None. Use the full Technical Discovery interaction model.
+No overrides.
 
 ## Context gathering
 
-When `/technical-discovery` is invoked:
+Per `skills/_conventions.md`. Required context: a description of the problem space to map.
 
-1. If the user has included a problem description in the same message, use it directly
-2. If invoked alone, prompt the user:
+> "Please describe the problem you're trying to map. Include: what you're trying to accomplish, any constraints or requirements you know about, what you already know or have ruled out, and what questions you most need answered. There's no required format — write it however is natural."
 
-   > "Please describe the problem you're trying to map. Include: what you're trying to accomplish, any constraints or requirements you know about, what you already know or have ruled out, and what questions you most need answered. There's no required format — write it however is natural."
-
-3. Optionally ask: "Is there a domain or industry context I should apply (e.g. payments, healthcare, real-time systems)? If not, I'll infer it from context."
-
-Do not proceed until a problem description has been provided.
-
-## Execution
-
-Run the Technical Discovery interaction model in order:
-
-1. **[Project Owner]** — Frame the problem: what user or business need drives this, what success looks like, what constraints exist, and what questions must be answered before design can begin. This framing is provisional — a starting point other personas can challenge.
-
-2. **[Domain Expert]** — Map the domain context: what does this problem look like in this domain? What patterns, standards, or prior art apply? What constraints does the domain impose? What are the known failure modes teams encounter here? State the domain inference explicitly if no domain was specified.
-
-3. **[System Architect]** — Map the technical solution space: what approaches exist, what are their tradeoffs, what technical unknowns must be resolved before design can be committed? What spikes or prototypes would reduce the key uncertainties?
-
-4. **[Devil's Advocate]** — Challenge the foundations: what assumptions is the problem framing making? What if the problem is different from how it's been described? What are we not considering? What would cause all identified options to fail?
-
-5. **[Synthesis — Project Owner + System Architect]** — Jointly produce the discovery report.
-
-Each persona must respond in character — voice, priorities, and concerns should reflect their definition in `agents/stable/`, not generic commentary.
+Optional focus question: "Is there a domain or industry context I should apply (e.g. payments, healthcare, real-time systems)? If not, I'll infer it from context."
 
 ## Output format
 
@@ -102,3 +79,15 @@ Each persona must respond in character — voice, priorities, and concerns shoul
 - [Whether the problem framing needs revision before proceeding]
 
 ---
+
+## Example invocation
+
+```
+/technical-discovery
+
+We want to add offline support to our field-service app so technicians can work in
+areas with no signal, but we're not sure what "offline" should even mean here — full
+read/write, read-only, or queued actions. Data is currently server-authoritative and
+some records are edited by multiple technicians. We haven't picked a sync approach and
+want to understand the option space and the risks before committing to a design.
+```

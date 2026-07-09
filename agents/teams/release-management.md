@@ -34,18 +34,14 @@ This team operates in a **criteria evaluation → risk assessment → gap resolu
 All personas review the release brief: what is being shipped, to which environments and platforms, what the expected user impact is, and what has already been verified. No responses yet.
 
 ### 2. Criteria evaluation
-Each persona evaluates readiness from their domain independently:
+Each persona evaluates readiness from their domain independently. Activated optional members contribute before the Devil's Advocate, so that the DA can stress-test every readiness claim — including theirs:
 
 1. **Tech Lead** — Are all intended changes included? Are integration points with other systems verified? Are there unresolved technical dependencies or sequencing requirements?
 2. **DevOps / Platform Engineer** — Is the deployment pipeline validated in staging? Are observability, alerting, and logging in place? Is the rollback mechanism tested and ready? Are environment configurations correct?
 3. **QA Engineer** — Are all acceptance criteria met? Are known defects triaged and dispositioned (fix before release, fix after release, accepted)? Is the regression suite green?
-4. **Devil's Advocate** — Are readiness claims supported by evidence or by assumption? Is the rollback plan realistic under time pressure? What failure mode has not been considered?
-
-If **Mobile App Developer** is activated:
-5. **Mobile App Developer** — Is the app store submission prepared and validated? Are real-device tests completed for the target OS version matrix? Is the phased rollout configuration correct? Are crash reporting and analytics instrumented?
-
-If **Security Engineer** is activated:
-6. **Security Engineer** — Are there security-sensitive changes that require review? Have secrets, permissions, and data handling been verified for the new version?
+4. **Mobile App Developer** *(if activated)* — Is the app store submission prepared and validated? Are real-device tests completed for the target OS version matrix? Is the phased rollout configuration correct? Are crash reporting and analytics instrumented?
+5. **Security Engineer** *(if activated)* — Are there security-sensitive changes that require review? Have secrets, permissions, and data handling been verified for the new version?
+6. **Devil's Advocate** — Are readiness claims supported by evidence or by assumption? Is the rollback plan realistic under time pressure? What failure mode has not been considered?
 
 ### 3. Risk assessment
 The **Release Manager** reviews all criteria evaluations and produces:
