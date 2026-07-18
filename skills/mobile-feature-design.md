@@ -12,56 +12,29 @@ Takes a feature request or user story and returns an agreed scope, recommended t
 
 Assumes the *why* is established — this team focuses on the *what* and *how* at a level of fidelity sufficient for confident mobile implementation.
 
-No external dependencies — context is provided by the user directly.
-
 ## Team
 
 `agents/teams/feature-design.md`
 
-This skill uses the Feature Design team with the Mobile App Developer and UX Reviewer activated as required members. The interaction model is extended with a mobile platform analysis step.
+Activates the **Mobile App Developer** and **UX Reviewer** as required members (not optional) for every run of this skill.
 
-## Interaction model overrides
+## Interaction model
 
-The standard Feature Design interaction model is extended as follows:
+Follow the team's default interaction model in `agents/teams/feature-design.md`. The shared protocol in `skills/_conventions.md` applies.
 
-- After the System Architect's technical analysis, the **Mobile App Developer** contributes a platform analysis step before the Senior Developer's implementability check
-- The **UX Reviewer** contributes after the Senior Developer's implementability check, focusing on mobile user flows and platform-native interaction patterns
-- The synthesis step must address platform-specific scope explicitly (which platforms, which OS versions, what offline behaviour is required)
+Overrides:
+- Add a **Mobile App Developer** platform-analysis step after the System Architect's technical analysis and before the Senior Developer's implementability check — target platforms and OS versions, app store policy implications, offline and network-degraded behaviour, platform-specific APIs, and mobile CI/CD or distribution considerations.
+- The **UX Reviewer** contributes after the Senior Developer's implementability check (before the stress test), focusing on mobile user flows and platform-native interaction patterns.
+- Extend the cross-examination with two mobile pairings: Mobile App Developer + Senior Developer on conflicts between platform requirements and implementation approach; UX Reviewer + Mobile App Developer on platform-convention tensions.
+- Synthesis is a trio — **Project Owner + System Architect + Mobile App Developer** — and must address platform-specific scope explicitly (which platforms, which OS versions, what offline behaviour is required).
 
 ## Context gathering
 
-When `/mobile-feature-design` is invoked:
+Per `skills/_conventions.md`. Required context: a feature description and the target platform(s).
 
-1. If the user has included a feature description in the same message, use it directly
-2. If invoked alone, prompt the user:
+> "Please describe the feature you'd like designed for mobile. Include: what user problem it solves, which platforms it targets (iOS, Android, or both), any platform-specific requirements or constraints you know about, what technical approach (if any) you're already considering, and anything already decided or ruled out."
 
-   > "Please describe the feature you'd like designed for mobile. Include: what user problem it solves, which platforms it targets (iOS, Android, or both), any platform-specific requirements or constraints you know about, what technical approach (if any) you're already considering, and anything already decided or ruled out."
-
-3. Optionally ask: "Are there specific mobile concerns you want the team to focus on — offline behaviour, app store submission, a particular OS version, performance, or something else?"
-
-Do not proceed until a feature description and target platform(s) have been provided.
-
-## Execution
-
-Run the extended Feature Design interaction model in order:
-
-1. **[Project Owner]** — Restate the user problem and goal the feature serves, the success criteria, the known constraints, and the scope boundary as currently understood. Note any mobile-specific user expectations (offline use, push notifications, background behaviour).
-
-2. **[System Architect]** — Evaluate technical approach options: what exists, what the structural implications of each are, what the tradeoffs are, and which approach is recommended. Flag any decisions that would be expensive to reverse, particularly those involving shared backend or API design that affects multiple clients.
-
-3. **[Mobile App Developer]** — Analyse the feature from a mobile platform perspective: which platforms and OS versions are in scope, what app store policy implications exist, what offline and network-degraded behaviour is required, what platform-specific APIs or capabilities are needed, and what mobile CI/CD or distribution considerations arise from this feature.
-
-4. **[Senior Developer]** — Assess implementability: hidden complexity across shared and platform-specific code, unresolved dependencies, effort realism, and what needs to be specified more precisely before a developer can start.
-
-5. **[UX Reviewer]** — Evaluate the mobile user experience: do the proposed flows conform to platform conventions, are there accessibility considerations specific to mobile, and does the interaction model feel native to the platforms in scope?
-
-6. **[Devil's Advocate]** — Challenge the feature design: is the problem framing correct? Are platform assumptions validated? Is the scope appropriate for a mobile context? Are offline and edge-connectivity scenarios accounted for or consciously deferred?
-
-7. **[Cross-examination]** — Project Owner responds to scope and framing challenges; System Architect responds to implementability and platform concerns; Mobile App Developer and Senior Developer address any conflicts between platform requirements and implementation approach; UX Reviewer and Mobile App Developer address any platform-convention tensions.
-
-8. **[Synthesis — Project Owner + System Architect + Mobile App Developer]** — Jointly produce the final feature specification.
-
-Each persona must respond in character — voice, priorities, and concerns should reflect their definition in `agents/stable/`.
+Optional focus question: "Are there specific mobile concerns you want the team to focus on — offline behaviour, app store submission, a particular OS version, performance, or something else?"
 
 ## Output format
 
@@ -145,3 +118,15 @@ Each persona must respond in character — voice, priorities, and concerns shoul
 [If DA has unresolved concerns: **Devil's Advocate note:** [...]]
 
 ---
+
+## Example invocation
+
+```
+/mobile-feature-design
+
+We want to add mobile boarding passes to our travel app on iOS and Android. Users should
+be able to pull up their pass at the gate even with no signal, and it should update if the
+gate or time changes while they're online. iOS should support Apple Wallet. Minimum
+targets are iOS 16 and Android 11. Backend already exposes a bookings API; nothing decided
+on local storage or push-update strategy.
+```

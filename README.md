@@ -145,6 +145,7 @@ agent-crew/
       cautious.md
       move-fast.md
   skills/                          ← Invocable slash-command definitions
+    _conventions.md                ← shared skill protocol
     review-proposal.md
     technical-discovery.md
     feature-design.md
@@ -154,6 +155,8 @@ agent-crew/
     mobile-implementation-review.md
     release-planning.md
     security-review.md
+  docs/
+    optimization-plan.md           ← analysis & roadmap
 ```
 
 ## Extending

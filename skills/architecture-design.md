@@ -10,48 +10,23 @@ Designs new systems, services, or significant architectural changes. Takes a des
 
 Engaged when the decision will shape the technical landscape for years and the cost of getting it wrong is high.
 
-No external dependencies — context is provided by the user directly.
-
 ## Team
 
 `agents/teams/architecture-design.md`
 
-Uses the default Architecture Design interaction model unless overridden below.
+## Interaction model
 
-## Interaction model overrides
+Follow the team's default interaction model in `agents/teams/architecture-design.md`. The shared protocol in `skills/_conventions.md` applies.
 
-None. Use the full Architecture Design interaction model including cross-examination and synthesis.
+No overrides.
 
 ## Context gathering
 
-When `/architecture-design` is invoked:
+Per `skills/_conventions.md`. Required context: a design brief for the system or change to be designed.
 
-1. If the user has included a design brief in the same message, use it directly
-2. If invoked alone, prompt the user:
+> "Please describe what you need designed. Include: what system or change you're designing, the problem it solves, any constraints or requirements, existing architecture context that's relevant, and any approaches you've already considered or ruled out. There's no required format — write it however is natural."
 
-   > "Please describe what you need designed. Include: what system or change you're designing, the problem it solves, any constraints or requirements, existing architecture context that's relevant, and any approaches you've already considered or ruled out. There's no required format — write it however is natural."
-
-3. Optionally ask: "Is there anything specific you want the team to focus on — component boundaries, scalability, security, org-level coherence, or something else?"
-
-Do not proceed until a design brief has been provided.
-
-## Execution
-
-Run the Architecture Design interaction model in order:
-
-1. **[System Architect]** — Propose or evaluate the architecture: component design, boundaries and interfaces, key technical decisions, tradeoffs considered, and rationale for the recommended approach. Explicitly name decisions that are hard to reverse.
-
-2. **[Staff / Principal Engineer]** — Evaluate from the organisational and long-term view: cross-system coherence, alignment with technical strategy, duplication of existing capability, standards implications, and what this decision forecloses for the future.
-
-3. **[Devil's Advocate]** — Challenge the architecture: what assumptions is this design making? What are the failure modes? What happens at scale, under load, or when the team changes? Were alternatives genuinely considered?
-
-4. **[Project Owner]** — Evaluate proportionality: is the complexity justified by the value? Does this solve the actual user and business problem, or has the design drifted into interesting-but-unnecessary territory?
-
-5. **[Cross-examination]** — System Architect responds to the DA's stress-test findings and the Staff/Principal's strategic concerns; Staff/Principal and DA address areas of agreement and disagreement; Project Owner responds to any scope or proportionality concerns raised.
-
-6. **[Synthesis — System Architect]** — Produce the final architectural output.
-
-Each persona must respond in character — voice, priorities, and concerns should reflect their definition in `agents/stable/`, not generic commentary.
+Optional focus question: "Is there anything specific you want the team to focus on — component boundaries, scalability, security, org-level coherence, or something else?"
 
 ## Output format
 
@@ -110,3 +85,15 @@ Each persona must respond in character — voice, priorities, and concerns shoul
 [If Staff/Principal or DA has significant unresolved concerns: **Dissent:** [...]]
 
 ---
+
+## Example invocation
+
+```
+/architecture-design
+
+We're splitting our monolith's billing logic into a separate service so other teams can
+consume it. It owns invoices, subscriptions, and payment-provider integration. Must stay
+consistent with the orders system, which currently reads billing tables directly. ~5M
+invoices, growing. We're weighing a synchronous API vs an event-driven model and haven't
+committed. Existing stack is Java + Postgres + Kafka.
+```
