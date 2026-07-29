@@ -16,6 +16,10 @@ format. Everything below applies to every skill unless the skill explicitly over
   and the conflict should be flagged to the user as a defect in the library.
 - **Output format:** if the team file defines an output format, the skill uses it unless
   the skill declares its own. A format declared in the skill file wins.
+- **Standards** (`standards/`) are authoritative for what they define (e.g. finding
+  classification). When a team or skill references a standard, load it and apply it as
+  written. A team or skill may deviate from a referenced standard only via an explicitly
+  declared override, same as team-model overrides; the standard wins otherwise.
 
 ## Context gathering
 

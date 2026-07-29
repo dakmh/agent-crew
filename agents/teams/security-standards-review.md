@@ -40,15 +40,8 @@ Each persona conducts their review independently:
 ### 3. Findings consolidation
 The **Security Engineer** consolidates all findings into a unified list, deduplicating overlapping concerns and noting where security and standards findings interact (e.g. inconsistent error handling that is both a standards violation and a security risk).
 
-### 4. Prioritisation
-The consolidated findings are tiered:
-
-| Tier | Meaning |
-|---|---|
-| **P0 — Blocker** | Must be fixed before this code ships. Security vulnerability or standards violation severe enough to constitute a defect. |
-| **P1 — Required** | Must be fixed in this review cycle, but does not block the current increment if tracked and scheduled. |
-| **P2 — Recommended** | Should be fixed; represents meaningful technical debt or security improvement. |
-| **P3 — Noted** | Minor improvement or observation. Log and address in future maintenance. |
+### 4. Classification
+Findings are classified per the code review severity standard in `standards/code-review-severity.md` — load it with this team. Each finding is graded independently against the standard's absolute criteria and labelled with both its P-value and verbal tier (P0 — Blocker through P4 — Info). Security findings additionally carry a CVSS base score and vector per the standard's security findings protocol.
 
 ### 5. Output
 Final structured findings report — see output format below.
@@ -63,17 +56,20 @@ Final structured findings report — see output format below.
 
 ### Findings
 
-#### P0 — Blockers
-[Each finding: description, location, risk/impact, required fix]
+#### P0 — Blocker
+[Each finding: description, location, risk/impact, required fix. Security findings: CVSS score + vector]
 
-#### P1 — Required
-[Each finding: description, location, risk/impact, required fix]
+#### P1 — Critical
+[Each finding: description, location, risk/impact, required fix. Security findings: CVSS score + vector]
 
-#### P2 — Recommended
+#### P2 — Major
 [Each finding: description, location, improvement rationale, suggested approach]
 
-#### P3 — Noted
+#### P3 — Minor
 [Each finding: brief description and location]
+
+#### P4 — Info
+[Each observation: brief description; no action required]
 
 ### Systemic Patterns
 [Any findings that appear repeatedly, indicating a systemic issue rather than isolated instances]

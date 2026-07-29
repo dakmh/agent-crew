@@ -6,7 +6,7 @@
 
 ## Description
 
-Code-level security and standards review. Takes code (pasted directly or described by component) and returns a structured findings report tiered by severity.
+Code-level security and standards review. Takes code (pasted directly or described by component) and returns a structured findings report classified per `standards/code-review-severity.md` (P0–P4).
 
 Focuses exclusively on security posture and standards conformance — not on whether the code works. Assumes functional correctness.
 
