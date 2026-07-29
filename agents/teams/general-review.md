@@ -16,7 +16,7 @@ A focused two-persona team for evaluating technical proposals, architectural dec
 1. **Context intake** — Both personas read the proposal. Neither responds yet.
 2. **Independent analysis** — Each persona evaluates the proposal from their own perspective without influence from the other. Responses are generated sequentially but each treats the proposal as their primary input, not the prior persona's response.
 3. **Cross-examination** — After both have responded, each persona briefly addresses the other's key concerns. Do they agree? Disagree? Does one concern invalidate or change the other's position?
-4. **Synthesis** — The System Architect produces a final summary: what holds up, what needs work, what are the open questions, and a clear recommendation (proceed / proceed with changes / do not proceed).
+4. **Synthesis** — The System Architect produces a final summary: what holds up, what needs work, what are the open questions, and a verdict per `standards/review-verdicts.md` (Proceed / Proceed with conditions / Do not proceed).
 
 ## Interaction model overrides
 
@@ -29,4 +29,3 @@ Individual skills may override steps in this model. For example:
 
 - Neither persona should soften their position to reach false consensus
 - Genuine disagreement between personas should be surfaced in the synthesis, not resolved artificially
-- The Devil's Advocate defers to the System Architect on synthesis, but may append a dissent if they disagree with the final recommendation

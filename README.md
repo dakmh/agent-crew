@@ -157,6 +157,9 @@ agent-crew/
     security-review.md
   standards/                       ← Named reference standards cited by teams and skills
     code-review-severity.md        ← finding classification: P0–P4 ↔ Blocker–Info, CVSS for security
+    review-verdicts.md             ← fixed verdict scale: Proceed / with conditions / Do not proceed
+    risk-assessment.md             ← likelihood/impact rating, dispositions, risk acceptance records
+    mobile-release-readiness.md    ← app store submission checklist, review-window risk calculus
   docs/
     optimization-plan.md           ← analysis & roadmap
 ```

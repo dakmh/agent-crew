@@ -84,7 +84,7 @@ Optional focus question: "Is there anything specific you want the team to focus 
 
 **Known risks:** [And how they will be managed]
 
-**Readiness verdict:** Ready for implementation / Ready with conditions / Needs further design
+**Readiness verdict** (per `standards/review-verdicts.md`)**:** Proceed to implementation / Proceed with conditions / Do not proceed
 
 [If DA has unresolved concerns: **Devil's Advocate note:** [...]]
 

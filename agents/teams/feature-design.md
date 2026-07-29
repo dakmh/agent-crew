@@ -59,7 +59,7 @@ Personas address each other's key concerns:
 - Acceptance criteria (testable, user-perspective)
 - Open questions that must be resolved before implementation starts
 - Known risks and how they will be managed
-- Readiness verdict: **Ready for implementation** / **Ready with conditions** / **Needs further design**
+- Readiness verdict per `standards/review-verdicts.md`: **Proceed to implementation** / **Proceed with conditions** / **Do not proceed**
 
 ## Interaction model overrides
 

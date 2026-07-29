@@ -60,7 +60,7 @@ Optional focus question: "Is there anything specific you want the team to focus 
 
 **Open questions:** [...]
 
-**Recommendation:** Proceed / Proceed with changes / Do not proceed
+**Verdict** (per `standards/review-verdicts.md`)**:** Proceed / Proceed with conditions / Do not proceed
 
 [If DA dissents from recommendation, append:]
 

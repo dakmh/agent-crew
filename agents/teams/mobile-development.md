@@ -63,10 +63,8 @@ The Mobile App Developer produces a final structured output:
 - What must be resolved before mobile implementation starts
 - What can be resolved during implementation (with owner and platform)
 - Platform-specific risks and how they will be managed
-- App store submission readiness: any known policy risks, metadata requirements, required device testing
-- Overall mobile readiness verdict: **Ready** / **Ready with conditions** / **Not ready**
-
-If the Devil's Advocate has unresolved concerns not addressed in the readiness assessment, they may append a dissent.
+- App store submission readiness per `standards/mobile-release-readiness.md`: any known policy risks, metadata requirements, required device testing
+- Overall mobile readiness verdict per `standards/review-verdicts.md`: **Proceed** / **Proceed with conditions** / **Do not proceed**
 
 ## Interaction model overrides
 
@@ -76,7 +74,7 @@ If the Devil's Advocate has unresolved concerns not addressed in the readiness a
 
 ## Notes
 
-- App store review cycles are a hard constraint on release timing — any feature with app store submission risk must be flagged before implementation begins, not after
+- App store review cycles are a hard constraint on release timing (see `standards/mobile-release-readiness.md`) — any feature with app store submission risk must be flagged before implementation begins, not after
 - The Mobile App Developer and DevOps/Platform Engineer jointly own the CI/CD and distribution pipeline — neither can sign off independently on release readiness
 - UX Reviewer is a core member, not optional, because mobile UX patterns differ from web; a technically correct implementation that violates platform conventions creates a poor user experience and may affect app store review outcomes
 - Offline and network-degraded behaviour must be explicitly addressed — "we'll handle connectivity issues later" is not a valid plan for a mobile implementation

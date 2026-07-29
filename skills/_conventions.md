@@ -51,6 +51,11 @@ the user directly.
 
 ## Output
 
+- Persona sections are formatted as `### <emoji> <Persona> — <lens>` headings separated by
+  horizontal rules, each body written in character. Skills declare the emoji per persona in
+  their output format; keep a persona's emoji consistent within a skill.
+- Teams that close with a verdict use the scale in `standards/review-verdicts.md`; the team
+  names the action ("Proceed to implementation"), the tier words stay fixed.
 - Omit empty sections or tiers rather than printing placeholders.
 - If the stress-testing persona (usually the Devil's Advocate) has unresolved concerns
   after synthesis, append their dissent to the final output rather than softening the

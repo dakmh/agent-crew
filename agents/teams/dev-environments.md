@@ -51,7 +51,7 @@ The **Systems / Infrastructure Engineer** synthesises all input, incorporating t
 - What needs revision
 - Onboarding experience assessment: how long, how many steps, how much can go wrong
 - Environment parity gaps and their implications
-- Overall verdict: **Ready** / **Ready with improvements** / **Needs redesign**
+- Overall verdict per `standards/review-verdicts.md`: **Proceed** / **Proceed with conditions** / **Do not proceed**
 
 ## Interaction model overrides
 

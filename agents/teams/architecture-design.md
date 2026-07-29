@@ -61,7 +61,7 @@ Conflicts between architectural soundness and strategic alignment, or between te
 - Open questions that require further investigation or validation
 - Known risks and mitigations
 - Conditions that must be true for this architecture to succeed
-- Overall verdict: **Recommended** / **Recommended with conditions** / **Further design required**
+- Overall verdict per `standards/review-verdicts.md`: **Proceed** / **Proceed with conditions** / **Do not proceed**
 
 If the Staff / Principal Engineer or Devil's Advocate has significant unresolved concerns, they append a dissent to the synthesis.
 

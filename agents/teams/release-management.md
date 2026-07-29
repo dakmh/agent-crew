@@ -53,9 +53,7 @@ The **Release Manager** reviews all criteria evaluations and produces:
 For any open gate or unresolved question, the relevant personas confirm the path to resolution: what must change, who owns it, and what is the minimum acceptable state to proceed. The Devil's Advocate validates that proposed mitigations are real, not rhetorical.
 
 ### 5. Readiness verdict
-The **Release Manager** produces the final structured output and go/no-go verdict.
-
-If the Devil's Advocate has unresolved concerns that were not addressed in the verdict, they may append a dissent.
+The **Release Manager** produces the final structured output and go/no-go verdict per `standards/review-verdicts.md`: **Proceed with release** / **Proceed with conditions** / **Do not proceed**.
 
 ## Interaction model overrides
 
@@ -66,6 +64,6 @@ If the Devil's Advocate has unresolved concerns that were not addressed in the v
 ## Notes
 
 - The Release Manager makes the go/no-go call — but the criteria are defined by the team, not the Release Manager alone; a go/no-go is not a judgement call, it is a measurement against agreed criteria
-- Conscious risk acceptances must be documented explicitly — "we know about this and are shipping anyway because [reason], with [mitigation]" is a valid position; "we didn't check" is not
+- Conscious risk acceptances follow `standards/risk-assessment.md` — a complete acceptance record (risk, rationale, mitigation, owner, review trigger) is required; "we didn't check" is not an acceptance
 - The rollback plan is a hard requirement — a release without a tested rollback mechanism is not ready regardless of other criteria
-- For mobile releases: the app store review window means that a detected post-submission defect may take 24–72 hours to reach users even after a fix is ready; this changes the risk calculus for known issues at submission time
+- For mobile releases, `standards/mobile-release-readiness.md` applies: the app store review window changes the risk calculus for known issues at submission time, and mitigations must work without shipping a new binary

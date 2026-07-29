@@ -107,13 +107,13 @@ Optional focus question: "Are there specific mobile concerns you want the team t
 - On iOS: [any platform-specific criteria]
 - On Android: [any platform-specific criteria]
 
-**App store considerations:** [Policy risks, metadata requirements, required device testing before submission]
+**App store considerations** (per `standards/mobile-release-readiness.md`)**:** [Policy risks, metadata requirements, required device testing before submission]
 
 **Open questions:** [Must be resolved before implementation starts]
 
 **Known risks:** [And how they will be managed]
 
-**Readiness verdict:** Ready for implementation / Ready with conditions / Needs further design
+**Readiness verdict** (per `standards/review-verdicts.md`)**:** Proceed to implementation / Proceed with conditions / Do not proceed
 
 [If DA has unresolved concerns: **Devil's Advocate note:** [...]]
 

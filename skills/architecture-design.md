@@ -80,7 +80,7 @@ Optional focus question: "Is there anything specific you want the team to focus 
 
 **Conditions for success:** [What must be true for this architecture to work]
 
-**Verdict:** Recommended / Recommended with conditions / Further design required
+**Verdict** (per `standards/review-verdicts.md`)**:** Proceed / Proceed with conditions / Do not proceed
 
 [If Staff/Principal or DA has significant unresolved concerns: **Dissent:** [...]]
 

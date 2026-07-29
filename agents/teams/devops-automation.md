@@ -51,7 +51,7 @@ The **Build & Toolchain Engineer** synthesises all input, incorporating the DA's
 - What needs revision before implementation
 - What can be improved iteratively post-implementation
 - The highest-impact changes to make first
-- Overall verdict: **Adopt** / **Adopt with changes** / **Revise and re-review**
+- Overall verdict per `standards/review-verdicts.md`: **Proceed with adoption** / **Proceed with conditions** / **Do not proceed**
 
 ## Interaction model overrides
 

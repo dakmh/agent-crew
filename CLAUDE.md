@@ -39,7 +39,10 @@ Paths: `skills/<command>.md`, `agents/{teams,stable}/<stem>.md`, `agents/modifie
 Junior Developer, Senior Developer, Tech Lead, Staff / Principal Engineer, System Architect, Domain Expert, Product Manager, Project Owner, Devil's Advocate, QA Engineer, Security Engineer, DevOps / Platform Engineer, Build & Toolchain Engineer, Systems / Infrastructure Engineer, Code Standards Reviewer, UX Reviewer, Consolidation Architect, Mobile App Developer, Release Manager, Digital Fabrication Engineer, Inkscape Extension Developer, Woodworking / Joinery Specialist, 2D Vector Graphics Engineer, 3D Vector Graphics Engineer
 
 ### Standards
-Code Review Severity — finding classification: P0–P4 sort keys mapped to Blocker/Critical/Major/Minor/Info tiers; CVSS-based scoring for security findings.
+- Code Review Severity — finding classification: P0–P4 sort keys mapped to Blocker/Critical/Major/Minor/Info tiers; CVSS-based scoring for security findings.
+- Review Verdicts — the fixed three-tier verdict scale (Proceed / Proceed with conditions / Do not proceed) used by every team that closes with a verdict.
+- Risk Assessment — likelihood/impact rating, disposition scale (must fix → monitor), score-vs-flag ownership, risk acceptance records.
+- Mobile Release Readiness — app store submission checklist and review-window risk calculus.
 
 ### Modifiers
 optimistic/pessimistic (disposition), pragmatist/purist (methodology), cautious/move-fast (risk appetite) — pairs mutually exclusive.

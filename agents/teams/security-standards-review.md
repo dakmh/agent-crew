@@ -77,7 +77,7 @@ Final structured findings report — see output format below.
 ### Verdict
 **Security posture:** [Acceptable / Needs work / Unacceptable]
 **Standards conformance:** [Conformant / Minor gaps / Non-conformant]
-**Overall:** [Approved / Approved with conditions / Not approved]
+**Overall** (per `standards/review-verdicts.md`)**:** [Proceed / Proceed with conditions / Do not proceed]
 ```
 
 ## Interaction model overrides
