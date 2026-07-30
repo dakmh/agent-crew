@@ -16,6 +16,10 @@ format. Everything below applies to every skill unless the skill explicitly over
   and the conflict should be flagged to the user as a defect in the library.
 - **Output format:** if the team file defines an output format, the skill uses it unless
   the skill declares its own. A format declared in the skill file wins.
+- **Standards** (`standards/`) are authoritative for what they define (e.g. finding
+  classification). When a team or skill references a standard, load it and apply it as
+  written. A team or skill may deviate from a referenced standard only via an explicitly
+  declared override, same as team-model overrides; the standard wins otherwise.
 
 ## Context gathering
 
@@ -47,6 +51,11 @@ the user directly.
 
 ## Output
 
+- Persona sections are formatted as `### <emoji> <Persona> — <lens>` headings separated by
+  horizontal rules, each body written in character. Skills declare the emoji per persona in
+  their output format; keep a persona's emoji consistent within a skill.
+- Teams that close with a verdict use the scale in `standards/review-verdicts.md`; the team
+  names the action ("Proceed to implementation"), the tier words stay fixed.
 - Omit empty sections or tiers rather than printing placeholders.
 - If the stress-testing persona (usually the Devil's Advocate) has unresolved concerns
   after synthesis, append their dissent to the final output rather than softening the

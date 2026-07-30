@@ -62,9 +62,7 @@ The Tech Lead produces a final structured output:
 - What must be resolved before implementation starts
 - What can be resolved during implementation (with owner)
 - What is being consciously accepted as risk or debt
-- Overall readiness verdict: **Ready** / **Ready with conditions** / **Not ready**
-
-If the Devil's Advocate has unresolved concerns not addressed in the readiness assessment, they may append a dissent.
+- Overall readiness verdict per `standards/review-verdicts.md`: **Proceed** / **Proceed with conditions** / **Do not proceed**
 
 ## Interaction model overrides
 
@@ -79,5 +77,5 @@ Individual skills may modify this model. Common overrides:
 - The Tech Lead has decision authority in this team — when personas disagree, the Tech Lead resolves it
 - Genuine unresolved disagreement should be surfaced explicitly, not papered over with false consensus
 - The DevOps / Platform Engineer's infrastructure readiness criteria are a hard gate — implementation is not done if it cannot be deployed and monitored
-- Security Engineer's "must fix before shipping" items are non-negotiable blockers
+- Risk dispositions follow `standards/risk-assessment.md` — the Security Engineer's "must fix before shipping" items are hard gates that cannot be accepted or conditioned away
 - The Devil's Advocate's role is to surface risks before build starts, not to block work — their concerns should be resolved or consciously accepted, not ignored

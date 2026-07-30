@@ -8,6 +8,7 @@ A reusable, framework- and language-agnostic system of personas, teams, modifier
 - **Teams** (`agents/teams/`) — personas plus an interaction model for a task class.
 - **Skills** (`skills/`) — slash-command invocations: task, deliverable, output format.
 - **Modifiers** (`agents/modifiers/`) — overlays shifting how a persona weights/communicates concerns; role unchanged.
+- **Standards & conventions** (`standards/`) — named reference standards (classification scales, shared protocols) that teams and skills cite by path instead of defining inline.
 
 Detail lives in each file; `README.md` is the human-facing index.
 
@@ -17,14 +18,14 @@ When a skill is invoked (e.g. `/review-proposal`):
 
 1. Load the skill definition from `skills/` and the shared protocol in `skills/_conventions.md`
 2. Load the team it references from `agents/teams/`
-3. Load each persona from `agents/stable/`
+3. Load each persona from `agents/stable/`, and any standard the skill or team references from `standards/`
 4. Gather required context (user input, paste, or file)
 5. Run the skill/team interaction model
 6. Produce output in the skill's format
 
 ## Index
 
-Paths: `skills/<command>.md`, `agents/{teams,stable}/<stem>.md`, `agents/modifiers/<name>.md`. Stem = name lowercased; `&`, `/`, `'` dropped; each whitespace run becomes a single `-` (e.g. Staff / Principal Engineer → `staff-principal-engineer`).
+Paths: `skills/<command>.md`, `agents/{teams,stable}/<stem>.md`, `agents/modifiers/<name>.md`, `standards/<stem>.md`. Stem = name lowercased; `&`, `/`, `'` dropped; each whitespace run becomes a single `-` (e.g. Staff / Principal Engineer → `staff-principal-engineer`).
 
 ### Skills (`/command`)
 `/review-proposal`, `/security-review`, `/technical-discovery`, `/feature-design`, `/architecture-design`, `/project-planning`, `/mobile-feature-design`, `/mobile-implementation-review`, `/release-planning`
@@ -36,6 +37,12 @@ Paths: `skills/<command>.md`, `agents/{teams,stable}/<stem>.md`, `agents/modifie
 
 ### Personas
 Junior Developer, Senior Developer, Tech Lead, Staff / Principal Engineer, System Architect, Domain Expert, Product Manager, Project Owner, Devil's Advocate, QA Engineer, Security Engineer, DevOps / Platform Engineer, Build & Toolchain Engineer, Systems / Infrastructure Engineer, Code Standards Reviewer, UX Reviewer, Consolidation Architect, Mobile App Developer, Release Manager, Digital Fabrication Engineer, Inkscape Extension Developer, Woodworking / Joinery Specialist, 2D Vector Graphics Engineer, 3D Vector Graphics Engineer
+
+### Standards
+- Code Review Severity — finding classification: P0–P4 sort keys mapped to Blocker/Critical/Major/Minor/Info tiers; CVSS-based scoring for security findings.
+- Review Verdicts — the fixed three-tier verdict scale (Proceed / Proceed with conditions / Do not proceed) used by every team that closes with a verdict.
+- Risk Assessment — likelihood/impact rating, disposition scale (must fix → monitor), score-vs-flag ownership, risk acceptance records.
+- Mobile Release Readiness — app store submission checklist and review-window risk calculus.
 
 ### Modifiers
 optimistic/pessimistic (disposition), pragmatist/purist (methodology), cautious/move-fast (risk appetite) — pairs mutually exclusive.

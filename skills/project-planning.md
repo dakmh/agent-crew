@@ -85,7 +85,7 @@ Optional focus question: "Is there anything the team should weight especially â€
 
 **Open questions:** [Must be resolved before or during the planning horizon]
 
-**Readiness verdict:** Ready to execute / Ready with conditions / Needs further input
+**Readiness verdict** (per `standards/review-verdicts.md`)**:** Proceed to execution / Proceed with conditions / Do not proceed
 
 [If DA has unresolved concerns: **Devil's Advocate note:** [...]]
 

@@ -85,7 +85,7 @@ Skills are immediately available in any Claude Code session. Invoke by name:
 | `/mobile-feature-design` | Feature design extended with platform, app store, and offline concerns |
 | `/mobile-implementation-review` | Mobile implementation readiness across platform, CI/CD, test coverage, and security |
 | `/release-planning` | Release plan with go/no-go verdict, rollback plan, and communication plan |
-| `/security-review` | Code-level security and standards review; returns P0–P3 findings report |
+| `/security-review` | Code-level security and standards review; returns P0–P4 findings report per the code review severity standard |
 
 Modifiers adjust how a persona weights and communicates its concerns:
 
@@ -155,6 +155,11 @@ agent-crew/
     mobile-implementation-review.md
     release-planning.md
     security-review.md
+  standards/                       ← Named reference standards cited by teams and skills
+    code-review-severity.md        ← finding classification: P0–P4 ↔ Blocker–Info, CVSS for security
+    review-verdicts.md             ← fixed verdict scale: Proceed / with conditions / Do not proceed
+    risk-assessment.md             ← likelihood/impact rating, dispositions, risk acceptance records
+    mobile-release-readiness.md    ← app store submission checklist, review-window risk calculus
   docs/
     optimization-plan.md           ← analysis & roadmap
 ```
@@ -176,3 +181,7 @@ Create a file in `agents/modifiers/`. Define: which dimension it operates on (di
 ### Adding a skill
 
 Create a file in `skills/`. Define: the slash command name, which team to use, how to gather context, the interaction model (may override the team default), and output format.
+
+### Adding a standard
+
+Create a file in `standards/`. Define a self-contained reference (classification scale, protocol, convention) that multiple teams or skills can cite by path instead of defining inline. Standards are authoritative for what they define; teams and skills deviate only via explicitly declared overrides.

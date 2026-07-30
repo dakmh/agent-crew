@@ -87,17 +87,17 @@ Optional focus question: "Is this a new feature, a change to existing functional
 **Can be resolved during implementation:**
 - [Item — owner: ...]
 
-**Consciously accepted risks or debt:**
-- [Item — rationale: ...]
+**Consciously accepted risks or debt** (per `standards/risk-assessment.md`)**:**
+- [Item — rationale — mitigation — owner]
 
-**App store readiness:**
+**App store readiness** (per `standards/mobile-release-readiness.md`)**:**
 - [Known policy risks]
 - [Required metadata or assets]
 - [Required device testing before submission]
 
 **Mobile CI/CD readiness:** [Pipeline status, signing, distribution channel]
 
-**Overall mobile readiness verdict:** Ready / Ready with conditions / Not ready
+**Overall mobile readiness verdict** (per `standards/review-verdicts.md`)**:** Proceed / Proceed with conditions / Do not proceed
 
 [If DA has unresolved concerns: **Devil's Advocate dissent:** [...]]
 

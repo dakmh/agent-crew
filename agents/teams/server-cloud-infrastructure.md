@@ -59,7 +59,7 @@ The **Systems / Infrastructure Engineer** produces the final assessment:
 - Infrastructure-as-code coverage: what is defined in code, what is manual
 - Cost and resource governance assessment
 - Risks surfaced by the Devil's Advocate: resolved / accepted / requires redesign
-- Overall verdict: **Production-ready** / **Ready with conditions** / **Not ready — redesign required**
+- Overall verdict per `standards/review-verdicts.md`: **Proceed to production** / **Proceed with conditions** / **Do not proceed**
 
 ## Interaction model overrides
 
@@ -69,7 +69,7 @@ The **Systems / Infrastructure Engineer** produces the final assessment:
 
 ## Notes
 
-- Security Engineer's "must fix before shipping" infrastructure items are non-negotiable blockers — no production deployment proceeds with open critical infrastructure security findings
+- Risk dispositions follow `standards/risk-assessment.md` — the Security Engineer's "must fix before shipping" infrastructure items are hard gates; no production deployment proceeds with open critical infrastructure security findings
 - Disaster recovery is not optional — every production infrastructure design must include a defined RTO, RPO, and the infrastructure to meet them
 - Infrastructure-as-code is the expected standard — manual infrastructure must be explicitly justified and carries a documentation and reproducibility debt that must be tracked
 - Cost governance is a first-class concern, not an afterthought — ungoverned cloud resource growth is a reliability and financial risk

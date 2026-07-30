@@ -75,8 +75,8 @@ Optional focus question: "Is there anything specific about this release that con
 |---|---|---|
 | [Criterion] | ✅ Met / ❌ Not met / ⚠️ Risk accepted | [...] |
 
-**Conscious risk acceptances:**
-- [Risk — rationale — mitigation]
+**Conscious risk acceptances** (per `standards/risk-assessment.md`)**:**
+- [Risk — rationale — mitigation — owner — review trigger]
 
 **Rollback plan:**
 - Trigger: [What causes rollback to be invoked]
@@ -89,12 +89,12 @@ Optional focus question: "Is there anything specific about this release that con
 - Users / customers: [Release notes, in-app notices, or no action required]
 - Support team: [Heads-up on expected queries or behaviour changes]
 
-**For mobile releases:**
+**For mobile releases** (per `standards/mobile-release-readiness.md`)**:**
 - App store submission timeline: [When submitted, expected review window]
 - Phased rollout: [Percentage and escalation schedule]
 - Force-upgrade policy: [If applicable — when and how users will be required to update]
 
-**Release readiness verdict:** Ready to ship / Ready with conditions / Not ready
+**Release readiness verdict** (per `standards/review-verdicts.md`)**:** Proceed with release / Proceed with conditions / Do not proceed
 
 **Conditions** *(if applicable)*: [What must be resolved before release proceeds, with owner and deadline]
 
