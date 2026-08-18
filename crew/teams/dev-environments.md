@@ -12,18 +12,18 @@ Distinct from the Server / Cloud Infrastructure team in that it focuses on devel
 
 | Persona | File | Role in this team |
 |---|---|---|
-| Systems / Infrastructure Engineer | `agents/stable/systems-infrastructure-engineer.md` | Lead voice; environment architecture, parity design, OS and runtime configuration |
-| DevOps / Platform Engineer | `agents/stable/devops-platform-engineer.md` | Containerisation, devcontainer design, environment-to-CI parity, secrets in dev environments |
-| Senior Developer | `agents/stable/senior-developer.md` | Developer experience perspective, practical friction points, onboarding realism |
-| Build & Toolchain Engineer | `agents/stable/build-toolchain-engineer.md` | Toolchain version management, runtime pinning, local build reproducibility |
-| Devil's Advocate | `agents/stable/devils-advocate.md` | Stress-tests environment design assumptions; challenges claims about setup time, reproducibility, and cross-platform compatibility |
+| Systems / Infrastructure Engineer | `crew/stable/systems-infrastructure-engineer.md` | Lead voice; environment architecture, parity design, OS and runtime configuration |
+| DevOps / Platform Engineer | `crew/stable/devops-platform-engineer.md` | Containerisation, devcontainer design, environment-to-CI parity, secrets in dev environments |
+| Senior Developer | `crew/stable/senior-developer.md` | Developer experience perspective, practical friction points, onboarding realism |
+| Build & Toolchain Engineer | `crew/stable/build-toolchain-engineer.md` | Toolchain version management, runtime pinning, local build reproducibility |
+| Devil's Advocate | `crew/stable/devils-advocate.md` | Stress-tests environment design assumptions; challenges claims about setup time, reproducibility, and cross-platform compatibility |
 
 ## Optional members
 
 | Persona | File | When to include |
 |---|---|---|
-| Security Engineer | `agents/stable/security-engineer.md` | When dev environment security posture is in scope (credential handling, network access, secrets in local config) |
-| Tech Lead | `agents/stable/tech-lead.md` | When environment decisions affect team-wide workflow and need decision authority |
+| Security Engineer | `crew/stable/security-engineer.md` | When dev environment security posture is in scope (credential handling, network access, secrets in local config) |
+| Tech Lead | `crew/stable/tech-lead.md` | When environment decisions affect team-wide workflow and need decision authority |
 
 ## Default interaction model
 

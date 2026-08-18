@@ -1,8 +1,20 @@
+---
+name: security-review
+description: "Code-level security and standards review by the Security & Standards Review team, returning findings classified P0-P4 per the code-review-severity standard. Use when asked for a security review, security audit, or vulnerability check of code, to review auth/crypto/input-handling code, to check standards conformance or secure coding practices, or when the user says 'security review this', 'check this for vulnerabilities', 'is this code secure', or invokes /security-review. Assumes functional correctness; reviews security posture and standards only."
+---
+
 # Skill: Security Review
+
+> **Loading:** all repo-relative paths in this file (`skills/_conventions.md`, `crew/…`,
+> `standards/…`) resolve from the plugin root — `${CLAUDE_PLUGIN_ROOT}` when installed as a
+> plugin, the repository root in a checkout. Before running: load `skills/_conventions.md`
+> (shared protocol), the team file referenced below, every persona the team lists, and any
+> standard referenced by the skill, team, or personas.
 
 ## Command
 
-`/security-review`
+`/agent-crew:security-review` (installed as a plugin) — historically bare `/security-review` in
+pre-plugin setups; treat both as this skill.
 
 ## Description
 
@@ -12,7 +24,7 @@ Focuses exclusively on security posture and standards conformance — not on whe
 
 ## Team
 
-`agents/teams/security-standards-review.md`
+`crew/teams/security-standards-review.md`
 
 Conditionally activates optional members:
 - **Domain Expert** — when a regulated domain (e.g. healthcare, payments, financial services) is specified or clearly implied by the code, for compliance-specific findings.
@@ -20,7 +32,7 @@ Conditionally activates optional members:
 
 ## Interaction model
 
-Follow the team's default interaction model in `agents/teams/security-standards-review.md`. The shared protocol in `skills/_conventions.md` applies.
+Follow the team's default interaction model in `crew/teams/security-standards-review.md`. The shared protocol in `skills/_conventions.md` applies.
 
 No overrides.
 
@@ -37,7 +49,7 @@ Optional focus questions:
 
 ## Output format
 
-Use the output format defined in `agents/teams/security-standards-review.md`.
+Use the output format defined in `crew/teams/security-standards-review.md`.
 
 ## Example invocation
 

@@ -12,21 +12,21 @@ Engage this team when a feature, release, or implementation involves a mobile cl
 
 | Persona | File | Role in this team |
 |---|---|---|
-| Mobile App Developer | `agents/stable/mobile-app-developer.md` | Platform expertise, app store constraints, mobile-specific implementation patterns, device and OS concerns |
-| Senior Developer | `agents/stable/senior-developer.md` | Implementation depth, shared codebase concerns, effort realism, cross-platform logic |
-| UX Reviewer | `agents/stable/ux-reviewer.md` | Mobile user flows, platform-native interaction patterns, accessibility on mobile |
-| DevOps / Platform Engineer | `agents/stable/devops-platform-engineer.md` | Mobile CI/CD pipeline, code signing, distribution channels, build reproducibility |
-| QA Engineer | `agents/stable/qa-engineer.md` | Mobile test strategy, device matrix, OS version coverage, regression and acceptance criteria |
-| Security Engineer | `agents/stable/security-engineer.md` | On-device security, API communication, credential storage, certificate pinning |
-| Devil's Advocate | `agents/stable/devils-advocate.md` | Stress-tests the mobile implementation approach, platform assumptions, and distribution strategy |
+| Mobile App Developer | `crew/stable/mobile-app-developer.md` | Platform expertise, app store constraints, mobile-specific implementation patterns, device and OS concerns |
+| Senior Developer | `crew/stable/senior-developer.md` | Implementation depth, shared codebase concerns, effort realism, cross-platform logic |
+| UX Reviewer | `crew/stable/ux-reviewer.md` | Mobile user flows, platform-native interaction patterns, accessibility on mobile |
+| DevOps / Platform Engineer | `crew/stable/devops-platform-engineer.md` | Mobile CI/CD pipeline, code signing, distribution channels, build reproducibility |
+| QA Engineer | `crew/stable/qa-engineer.md` | Mobile test strategy, device matrix, OS version coverage, regression and acceptance criteria |
+| Security Engineer | `crew/stable/security-engineer.md` | On-device security, API communication, credential storage, certificate pinning |
+| Devil's Advocate | `crew/stable/devils-advocate.md` | Stress-tests the mobile implementation approach, platform assumptions, and distribution strategy |
 
 ## Optional members
 
 | Persona | File | When to include |
 |---|---|---|
-| Tech Lead | `agents/stable/tech-lead.md` | When the feature has significant cross-team or shared-backend implications |
-| Build & Toolchain Engineer | `agents/stable/build-toolchain-engineer.md` | When mobile CI/CD pipeline design, Fastlane configuration, or build toolchain work is in scope |
-| Domain Expert | `agents/stable/domain-expert.md` | When domain-specific constraints affect the mobile implementation approach |
+| Tech Lead | `crew/stable/tech-lead.md` | When the feature has significant cross-team or shared-backend implications |
+| Build & Toolchain Engineer | `crew/stable/build-toolchain-engineer.md` | When mobile CI/CD pipeline design, Fastlane configuration, or build toolchain work is in scope |
+| Domain Expert | `crew/stable/domain-expert.md` | When domain-specific constraints affect the mobile implementation approach |
 
 ## Default interaction model
 

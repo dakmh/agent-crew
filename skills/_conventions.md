@@ -38,7 +38,7 @@ the user directly.
 ## Running the interaction model
 
 - Each persona responds **in character** — voice, priorities, and concerns reflect their
-  definition in `agents/stable/`, not generic commentary or a labelled section of
+  definition in `crew/stable/`, not generic commentary or a labelled section of
   boilerplate.
 - Personas with overlapping domains do not re-cover ground a prior persona has already
   addressed unless they disagree — they reference the prior finding and extend it.
@@ -46,8 +46,13 @@ the user directly.
 - **Optional team members** are activated when the run's context matches the team file's
   "When to include" guidance, or when the user asks for them. State at the start of the
   run which optional members are active and why.
-- **Modifiers** apply per the rules in `CLAUDE.md`. Mutually exclusive modifiers on the
-  same persona are a configuration error — flag it, don't guess.
+- **Modifiers** (`crew/modifiers/`) are applied at invocation — e.g.
+  `/agent-crew:review-proposal [architect:cautious] [dev:pragmatist]` — or set as defaults in
+  team/skill definitions. Modifiers stack across dimensions on one persona; the pairs
+  optimistic/pessimistic (disposition), pragmatist/purist (methodology), and
+  cautious/move-fast (risk appetite) are mutually exclusive within their dimension.
+  Mutually exclusive modifiers on the same persona are a configuration error — flag it,
+  don't guess. With no modifier, personas respond from their default disposition.
 
 ## Output
 

@@ -2,30 +2,18 @@
 
 A reusable, framework- and language-agnostic system of personas, teams, modifiers, and skills for Claude: define who is involved and how they interact once, then invoke by name.
 
-## How it works
+Distributed as a Claude Code plugin (see `README.md` → Installation); installed skills register with the harness as `/agent-crew:<command>` and load their own dependencies. This file serves two remaining audiences: sessions working in a checkout of this repo, and legacy setups that `@`-import it — the index below exists for the latter.
 
-- **Personas** (`agents/stable/`) — role, perspective, tendencies, what they push back on.
-- **Teams** (`agents/teams/`) — personas plus an interaction model for a task class.
-- **Skills** (`skills/`) — slash-command invocations: task, deliverable, output format.
-- **Modifiers** (`agents/modifiers/`) — overlays shifting how a persona weights/communicates concerns; role unchanged.
-- **Standards & conventions** (`standards/`) — named reference standards (classification scales, shared protocols) that teams and skills cite by path instead of defining inline.
+## Session rules
 
-Detail lives in each file; `README.md` is the human-facing index.
+- At the start of each session, read `lessons.md` before doing anything else.
+- Whenever you make a mistake and the user corrects you, append a concise rule to `lessons.md` that would prevent that mistake in future sessions.
 
-## Using a skill
+## Index (legacy-import discovery)
 
-When a skill is invoked (e.g. `/review-proposal`):
+When a skill is invoked by bare command (e.g. `/review-proposal`) and no plugin registration exists, resolve it here, then follow `skills/<command>/SKILL.md` — each SKILL.md states what to load (shared protocol `skills/_conventions.md`, its team, that team's personas, referenced standards).
 
-1. Load the skill definition from `skills/` and the shared protocol in `skills/_conventions.md`
-2. Load the team it references from `agents/teams/`
-3. Load each persona from `agents/stable/`, and any standard the skill or team references from `standards/`
-4. Gather required context (user input, paste, or file)
-5. Run the skill/team interaction model
-6. Produce output in the skill's format
-
-## Index
-
-Paths: `skills/<command>.md`, `agents/{teams,stable}/<stem>.md`, `agents/modifiers/<name>.md`, `standards/<stem>.md`. Stem = name lowercased; `&`, `/`, `'` dropped; each whitespace run becomes a single `-` (e.g. Staff / Principal Engineer → `staff-principal-engineer`).
+Paths: `skills/<command>/SKILL.md`, `crew/{teams,stable}/<stem>.md`, `crew/modifiers/<name>.md`, `standards/<stem>.md`. Stem = name lowercased; `&`, `/`, `'` dropped; each whitespace run becomes a single `-` (e.g. Staff / Principal Engineer → `staff-principal-engineer`).
 
 ### Skills (`/command`)
 `/review-proposal`, `/security-review`, `/technical-discovery`, `/feature-design`, `/architecture-design`, `/project-planning`, `/mobile-feature-design`, `/mobile-implementation-review`, `/release-planning`
@@ -39,27 +27,14 @@ Paths: `skills/<command>.md`, `agents/{teams,stable}/<stem>.md`, `agents/modifie
 Junior Developer, Senior Developer, Tech Lead, Staff / Principal Engineer, System Architect, Domain Expert, Product Manager, Project Owner, Devil's Advocate, QA Engineer, Security Engineer, DevOps / Platform Engineer, Build & Toolchain Engineer, Systems / Infrastructure Engineer, Code Standards Reviewer, UX Reviewer, Consolidation Architect, Mobile App Developer, Release Manager, Digital Fabrication Engineer, Inkscape Extension Developer, Woodworking / Joinery Specialist, 2D Vector Graphics Engineer, 3D Vector Graphics Engineer
 
 ### Standards
-- Code Review Severity — finding classification: P0–P4 sort keys mapped to Blocker/Critical/Major/Minor/Info tiers; CVSS-based scoring for security findings.
-- Review Verdicts — the fixed three-tier verdict scale (Proceed / Proceed with conditions / Do not proceed) used by every team that closes with a verdict.
-- Risk Assessment — likelihood/impact rating, disposition scale (must fix → monitor), score-vs-flag ownership, risk acceptance records.
-- Mobile Release Readiness — app store submission checklist and review-window risk calculus.
+Code Review Severity (P0–P4 finding classification), Review Verdicts (Proceed / Proceed with conditions / Do not proceed), Risk Assessment (likelihood/impact, dispositions), Mobile Release Readiness (app store submission gates)
 
 ### Modifiers
-optimistic/pessimistic (disposition), pragmatist/purist (methodology), cautious/move-fast (risk appetite) — pairs mutually exclusive.
+optimistic/pessimistic (disposition), pragmatist/purist (methodology), cautious/move-fast (risk appetite) — pairs mutually exclusive. Applied at invocation: `/review-proposal [architect:cautious] [dev:pragmatist]`. Full rules in `skills/_conventions.md`.
 
-Applied at invocation: `/review-proposal [architect:cautious] [dev:pragmatist]`. May also be set as defaults in team/skill definitions.
+## Conventions (authoring in this repo)
 
-## Session rules
-
-- At the start of each session, read `lessons.md` before doing anything else.
-- Whenever you make a mistake and the user corrects you, append a concise rule to `lessons.md` that would prevent that mistake in future sessions.
-
-## Conventions
-
-- Personas are self-contained and make no assumptions about the task. Teams define *who* participates and *how* they interact, not *what* the task is. Skills define the task, deliverable, and output format (in the skill or delegated to the team file).
-- The team file is the single source of truth for interaction models; skills declare only overrides and task-specific emphasis. If a skill conflicts with its team file outside a declared override, the team file wins. See `skills/_conventions.md`.
-- Shared skill protocol (context gathering, in-character requirement, optional-member activation, dissent handling) lives in `skills/_conventions.md` — load it with every skill.
-- "Respond in character" means adopt that persona's voice, biases, and concerns authentically — not just a labelled section.
-- Some teams define **optional members** — not included by default but available for specific task types; skills may activate them explicitly.
-- The Domain Expert infers domain from context if not specified, and states that inference openly so it can be corrected.
-- Modifiers stack across dimensions on one persona. Mutually exclusive modifiers within the same dimension may not be combined — applying both is a configuration error Claude should flag. With no modifier, personas respond from their default disposition.
+- Personas are self-contained and task-agnostic. Teams define *who* participates and *how* they interact. Skills define the task, deliverable, and output format. Standards are authoritative references cited by path.
+- The team file is the single source of truth for interaction models; skills declare only overrides. The shared runtime protocol (context gathering, in-character requirement, optional-member activation, dissent handling, modifier rules) lives in `skills/_conventions.md` — it, not this file, is loaded with every skill run.
+- The personas directory is `crew/`, not `agents/` — `agents/` has reserved meaning in the Claude Code plugin layout. Don't rename it back.
+- New skills need trigger-phrase-heavy `description` frontmatter (it is the only discovery mechanism for plugin consumers) and an entry in this index and the README table. Validate with `claude plugin validate .claude-plugin/plugin.json` before pushing.

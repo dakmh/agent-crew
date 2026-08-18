@@ -12,19 +12,19 @@ Distinct from the Technical Discovery team in that a feature already exists as a
 
 | Persona | File | Role in this team |
 |---|---|---|
-| Project Owner | `agents/stable/project-owner.md` | Problem framing, user goal, scope discipline, acceptance criteria, business fit |
-| System Architect | `agents/stable/system-architect.md` | Technical approach options, structural implications, long-term fit |
-| Senior Developer | `agents/stable/senior-developer.md` | Implementability reality check, effort realism, hidden complexity |
-| Devil's Advocate | `agents/stable/devils-advocate.md` | Stress-tests the problem framing, proposed approach, and scope assumptions |
+| Project Owner | `crew/stable/project-owner.md` | Problem framing, user goal, scope discipline, acceptance criteria, business fit |
+| System Architect | `crew/stable/system-architect.md` | Technical approach options, structural implications, long-term fit |
+| Senior Developer | `crew/stable/senior-developer.md` | Implementability reality check, effort realism, hidden complexity |
+| Devil's Advocate | `crew/stable/devils-advocate.md` | Stress-tests the problem framing, proposed approach, and scope assumptions |
 
 ## Optional members
 
 | Persona | File | When to include |
 |---|---|---|
-| UX Reviewer | `agents/stable/ux-reviewer.md` | Any feature with user-facing components |
-| Domain Expert | `agents/stable/domain-expert.md` | Domain-specific constraints affect what can be built or how |
-| Junior Developer | `agents/stable/junior-developer.md` | Spec clarity check — will someone without deep context be able to implement this? |
-| Tech Lead | `agents/stable/tech-lead.md` | When the feature has cross-team or integration implications |
+| UX Reviewer | `crew/stable/ux-reviewer.md` | Any feature with user-facing components |
+| Domain Expert | `crew/stable/domain-expert.md` | Domain-specific constraints affect what can be built or how |
+| Junior Developer | `crew/stable/junior-developer.md` | Spec clarity check — will someone without deep context be able to implement this? |
+| Tech Lead | `crew/stable/tech-lead.md` | When the feature has cross-team or integration implications |
 
 ## Default interaction model
 

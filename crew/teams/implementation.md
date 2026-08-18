@@ -10,12 +10,12 @@ This team is distinct from the pre-development planning team: it assumes the *wh
 
 | Persona | File | Role in this team |
 |---|---|---|
-| Tech Lead | `agents/stable/tech-lead.md` | Technical coherence, decision authority, integration risk, team coordination |
-| Senior Developer | `agents/stable/senior-developer.md` | Implementation depth, code quality, effort realism, hidden complexity |
-| DevOps / Platform Engineer | `agents/stable/devops-platform-engineer.md` | Infrastructure, deployment pipeline, observability, operational readiness |
-| QA Engineer | `agents/stable/qa-engineer.md` | Test strategy, acceptance criteria completeness, quality gates |
-| Security Engineer | `agents/stable/security-engineer.md` | Threat model, secure implementation patterns, compliance |
-| Devil's Advocate | `agents/stable/devils-advocate.md` | Stress-tests the implementation approach, estimates, and assumptions before build starts |
+| Tech Lead | `crew/stable/tech-lead.md` | Technical coherence, decision authority, integration risk, team coordination |
+| Senior Developer | `crew/stable/senior-developer.md` | Implementation depth, code quality, effort realism, hidden complexity |
+| DevOps / Platform Engineer | `crew/stable/devops-platform-engineer.md` | Infrastructure, deployment pipeline, observability, operational readiness |
+| QA Engineer | `crew/stable/qa-engineer.md` | Test strategy, acceptance criteria completeness, quality gates |
+| Security Engineer | `crew/stable/security-engineer.md` | Threat model, secure implementation patterns, compliance |
+| Devil's Advocate | `crew/stable/devils-advocate.md` | Stress-tests the implementation approach, estimates, and assumptions before build starts |
 
 ## Optional members
 
@@ -23,8 +23,8 @@ The following personas may be added by skills for specific task types:
 
 | Persona | File | When to include |
 |---|---|---|
-| UX Reviewer | `agents/stable/ux-reviewer.md` | Any implementation with user-facing components |
-| Domain Expert | `agents/stable/domain-expert.md` | Domain-specific constraints affect implementation approach |
+| UX Reviewer | `crew/stable/ux-reviewer.md` | Any implementation with user-facing components |
+| Domain Expert | `crew/stable/domain-expert.md` | Domain-specific constraints affect implementation approach |
 
 ## Default interaction model
 

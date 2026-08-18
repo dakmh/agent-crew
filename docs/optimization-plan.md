@@ -44,7 +44,7 @@ model step by step, usually after declaring `Interaction model overrides: None`.
 and the skill file are two copies of the same procedure, and they are already diverging:
 
 - `skills/release-planning.md` runs the Mobile App Developer *before* the Devil's Advocate;
-  `agents/teams/release-management.md` lists Mobile App Developer *after* the DA (step 5 vs
+  `crew/teams/release-management.md` lists Mobile App Developer *after* the DA (step 5 vs
   step 4). The skill also silently drops the team's **Gap resolution** step (team step 4).
 - `skills/mobile-implementation-review.md` collapses the team's Integration → Resolution →
   Readiness Assessment (steps 3–5) into a single "Integration" step, dropping the explicit
@@ -81,7 +81,7 @@ near-identical tables of skills, teams, personas, and modifiers.
 Every skill repeats the identical context-gathering scaffold ("1. If the user has included …
 2. If invoked alone, prompt … 3. Optionally ask … Do not proceed until …"), the sentence "Each
 persona must respond in character — voice, priorities, and concerns should reflect their
-definition in `agents/stable/`…", the "No external dependencies" line, and the DA-dissent
+definition in `crew/stable/`…", the "No external dependencies" line, and the DA-dissent
 footer convention.
 
 **Fix:** extract a `skills/_conventions.md` covering: context-gathering protocol, in-character
@@ -151,7 +151,7 @@ the system's own invocation model.
 Architect, Staff/Principal, or Consolidation Architect. This is a specification hole in the
 system's own invocation grammar.
 
-**Fix:** add a canonical alias table (in CLAUDE.md conventions or `agents/modifiers/_targeting.md`):
+**Fix:** add a canonical alias table (in CLAUDE.md conventions or `crew/modifiers/_targeting.md`):
 
 | Alias | Persona |
 |---|---|

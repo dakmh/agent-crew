@@ -12,18 +12,18 @@ Distinct from the Dev Environments team in that it focuses on server and cloud i
 
 | Persona | File | Role in this team |
 |---|---|---|
-| Systems / Infrastructure Engineer | `agents/stable/systems-infrastructure-engineer.md` | Lead voice; infrastructure architecture, network design, environment topology, reliability |
-| DevOps / Platform Engineer | `agents/stable/devops-platform-engineer.md` | Deployment pipeline integration, observability infrastructure, operational readiness |
-| Security Engineer | `agents/stable/security-engineer.md` | Infrastructure security posture, network security, IAM, compliance at the platform layer |
-| Devil's Advocate | `agents/stable/devils-advocate.md` | Stress-tests infrastructure design assumptions; surfaces failure modes and optimistic thinking about reliability, cost, and operational complexity |
+| Systems / Infrastructure Engineer | `crew/stable/systems-infrastructure-engineer.md` | Lead voice; infrastructure architecture, network design, environment topology, reliability |
+| DevOps / Platform Engineer | `crew/stable/devops-platform-engineer.md` | Deployment pipeline integration, observability infrastructure, operational readiness |
+| Security Engineer | `crew/stable/security-engineer.md` | Infrastructure security posture, network security, IAM, compliance at the platform layer |
+| Devil's Advocate | `crew/stable/devils-advocate.md` | Stress-tests infrastructure design assumptions; surfaces failure modes and optimistic thinking about reliability, cost, and operational complexity |
 
 ## Optional members
 
 | Persona | File | When to include |
 |---|---|---|
-| Domain Expert | `agents/stable/domain-expert.md` | When domain-specific compliance or infrastructure requirements apply (e.g. healthcare data residency, financial services availability requirements) |
-| Build & Toolchain Engineer | `agents/stable/build-toolchain-engineer.md` | When infrastructure-as-code toolchain design is a primary concern |
-| Tech Lead | `agents/stable/tech-lead.md` | When infrastructure decisions have significant application architecture implications |
+| Domain Expert | `crew/stable/domain-expert.md` | When domain-specific compliance or infrastructure requirements apply (e.g. healthcare data residency, financial services availability requirements) |
+| Build & Toolchain Engineer | `crew/stable/build-toolchain-engineer.md` | When infrastructure-as-code toolchain design is a primary concern |
+| Tech Lead | `crew/stable/tech-lead.md` | When infrastructure decisions have significant application architecture implications |
 
 ## Default interaction model
 

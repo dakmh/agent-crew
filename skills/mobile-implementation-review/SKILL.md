@@ -1,8 +1,20 @@
+---
+name: mobile-implementation-review
+description: "Reviews readiness of a mobile feature or release implementation via the Mobile Development team: platform correctness, code quality, mobile CI/CD, test coverage, and security, with a go/no-go verdict. Use when asked to review a mobile implementation, assess whether mobile work is ready to build or ship, check app store viability, device/OS coverage, or offline behaviour, or when the user says 'review the mobile implementation', 'are we ready to build/ship the app', or invokes /mobile-implementation-review."
+---
+
 # Skill: Mobile Implementation Review
+
+> **Loading:** all repo-relative paths in this file (`skills/_conventions.md`, `crew/…`,
+> `standards/…`) resolve from the plugin root — `${CLAUDE_PLUGIN_ROOT}` when installed as a
+> plugin, the repository root in a checkout. Before running: load `skills/_conventions.md`
+> (shared protocol), the team file referenced below, every persona the team lists, and any
+> standard referenced by the skill, team, or personas.
 
 ## Command
 
-`/mobile-implementation-review`
+`/agent-crew:mobile-implementation-review` (installed as a plugin) — historically bare `/mobile-implementation-review` in
+pre-plugin setups; treat both as this skill.
 
 ## Description
 
@@ -12,11 +24,11 @@ This is the mobile counterpart to the general implementation review. It extends 
 
 ## Team
 
-`agents/teams/mobile-development.md`
+`crew/teams/mobile-development.md`
 
 ## Interaction model
 
-Follow the team's default interaction model in `agents/teams/mobile-development.md`. The shared protocol in `skills/_conventions.md` applies.
+Follow the team's default interaction model in `crew/teams/mobile-development.md`. The shared protocol in `skills/_conventions.md` applies.
 
 No overrides.
 

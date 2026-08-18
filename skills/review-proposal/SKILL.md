@@ -1,8 +1,20 @@
+---
+name: review-proposal
+description: "Multi-persona review of a technical proposal, decision, or approach by the General Review team (System Architect + Devil's Advocate): independent critique, cross-examination, and a Proceed / Proceed with conditions / Do not proceed verdict. Use when asked to review a proposal, evaluate or sanity-check a technical approach or design decision, poke holes in a plan, stress-test an idea, get a second opinion on an architecture or migration choice, or when the user says 'review this proposal', 'what does the team/crew think', or invokes /review-proposal."
+---
+
 # Skill: Review Proposal
+
+> **Loading:** all repo-relative paths in this file (`skills/_conventions.md`, `crew/…`,
+> `standards/…`) resolve from the plugin root — `${CLAUDE_PLUGIN_ROOT}` when installed as a
+> plugin, the repository root in a checkout. Before running: load `skills/_conventions.md`
+> (shared protocol), the team file referenced below, every persona the team lists, and any
+> standard referenced by the skill, team, or personas.
 
 ## Command
 
-`/review-proposal`
+`/agent-crew:review-proposal` (installed as a plugin) — historically bare `/review-proposal` in
+pre-plugin setups; treat both as this skill.
 
 ## Description
 
@@ -10,11 +22,11 @@ Multi-persona evaluation of a technical proposal. Takes a plain-text description
 
 ## Team
 
-`agents/teams/general-review.md`
+`crew/teams/general-review.md`
 
 ## Interaction model
 
-Follow the team's default interaction model in `agents/teams/general-review.md`. The shared protocol in `skills/_conventions.md` applies.
+Follow the team's default interaction model in `crew/teams/general-review.md`. The shared protocol in `skills/_conventions.md` applies.
 
 No overrides.
 

@@ -12,19 +12,19 @@ Distinct from the Feature Design team in that it operates at the system level ra
 
 | Persona | File | Role in this team |
 |---|---|---|
-| System Architect | `agents/stable/system-architect.md` | Lead voice; structural design, component boundaries, key decisions, long-term implications |
-| Staff / Principal Engineer | `agents/stable/staff-principal-engineer.md` | Org-level coherence, cross-system implications, strategic alignment, long time horizons |
-| Devil's Advocate | `agents/stable/devils-advocate.md` | Stress-tests architectural choices; surfaces failure modes, hidden assumptions, and alternatives not considered |
-| Project Owner | `agents/stable/project-owner.md` | Value anchoring; ensures the architecture is proportionate to the problem and grounded in user and business outcomes |
+| System Architect | `crew/stable/system-architect.md` | Lead voice; structural design, component boundaries, key decisions, long-term implications |
+| Staff / Principal Engineer | `crew/stable/staff-principal-engineer.md` | Org-level coherence, cross-system implications, strategic alignment, long time horizons |
+| Devil's Advocate | `crew/stable/devils-advocate.md` | Stress-tests architectural choices; surfaces failure modes, hidden assumptions, and alternatives not considered |
+| Project Owner | `crew/stable/project-owner.md` | Value anchoring; ensures the architecture is proportionate to the problem and grounded in user and business outcomes |
 
 ## Optional members
 
 | Persona | File | When to include |
 |---|---|---|
-| Security Engineer | `agents/stable/security-engineer.md` | When security-by-design is a primary concern |
-| Domain Expert | `agents/stable/domain-expert.md` | When domain-specific constraints shape the architecture |
-| Tech Lead | `agents/stable/tech-lead.md` | When the architecture has immediate implementation implications and delivery feasibility is in scope |
-| Senior Developer | `agents/stable/senior-developer.md` | When implementation complexity should factor into architectural choices |
+| Security Engineer | `crew/stable/security-engineer.md` | When security-by-design is a primary concern |
+| Domain Expert | `crew/stable/domain-expert.md` | When domain-specific constraints shape the architecture |
+| Tech Lead | `crew/stable/tech-lead.md` | When the architecture has immediate implementation implications and delivery feasibility is in scope |
+| Senior Developer | `crew/stable/senior-developer.md` | When implementation complexity should factor into architectural choices |
 
 ## Default interaction model
 

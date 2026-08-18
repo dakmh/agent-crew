@@ -1,8 +1,20 @@
+---
+name: project-planning
+description: "Produces a prioritised plan for a sprint, quarter, or roadmap segment via the Project Planning team: prioritised sequence with rationale, trade-offs, success metrics, and sequencing constraints. Use when asked to plan a sprint or quarter, prioritise a backlog or set of candidate items, build a roadmap, sequence competing work, weigh strategic goals against capacity, or when the user says 'help me plan', 'what should we do first', 'prioritise these', or invokes /project-planning."
+---
+
 # Skill: Project Planning
+
+> **Loading:** all repo-relative paths in this file (`skills/_conventions.md`, `crew/…`,
+> `standards/…`) resolve from the plugin root — `${CLAUDE_PLUGIN_ROOT}` when installed as a
+> plugin, the repository root in a checkout. Before running: load `skills/_conventions.md`
+> (shared protocol), the team file referenced below, every persona the team lists, and any
+> standard referenced by the skill, team, or personas.
 
 ## Command
 
-`/project-planning`
+`/agent-crew:project-planning` (installed as a plugin) — historically bare `/project-planning` in
+pre-plugin setups; treat both as this skill.
 
 ## Description
 
@@ -12,11 +24,11 @@ Focuses on the *what* and *why* of the plan, not the *how* of any individual ite
 
 ## Team
 
-`agents/teams/project-planning.md`
+`crew/teams/project-planning.md`
 
 ## Interaction model
 
-Follow the team's default interaction model in `agents/teams/project-planning.md`. The shared protocol in `skills/_conventions.md` applies.
+Follow the team's default interaction model in `crew/teams/project-planning.md`. The shared protocol in `skills/_conventions.md` applies.
 
 No overrides.
 

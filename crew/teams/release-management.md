@@ -12,19 +12,19 @@ For mobile applications, this team explicitly addresses app store submission tim
 
 | Persona | File | Role in this team |
 |---|---|---|
-| Release Manager | `agents/stable/release-manager.md` | Release coordination, go/no-go criteria, rollback planning, communication plan, versioning |
-| Tech Lead | `agents/stable/tech-lead.md` | Technical readiness assessment, dependency verification, integration risk |
-| DevOps / Platform Engineer | `agents/stable/devops-platform-engineer.md` | Deployment pipeline readiness, observability, environment parity, rollback execution |
-| QA Engineer | `agents/stable/qa-engineer.md` | Test completion status, known defect triage, acceptance criteria sign-off |
-| Devil's Advocate | `agents/stable/devils-advocate.md` | Challenges readiness assumptions, stress-tests the rollback plan, questions whether risks are genuinely mitigated or merely accepted |
+| Release Manager | `crew/stable/release-manager.md` | Release coordination, go/no-go criteria, rollback planning, communication plan, versioning |
+| Tech Lead | `crew/stable/tech-lead.md` | Technical readiness assessment, dependency verification, integration risk |
+| DevOps / Platform Engineer | `crew/stable/devops-platform-engineer.md` | Deployment pipeline readiness, observability, environment parity, rollback execution |
+| QA Engineer | `crew/stable/qa-engineer.md` | Test completion status, known defect triage, acceptance criteria sign-off |
+| Devil's Advocate | `crew/stable/devils-advocate.md` | Challenges readiness assumptions, stress-tests the rollback plan, questions whether risks are genuinely mitigated or merely accepted |
 
 ## Optional members
 
 | Persona | File | When to include |
 |---|---|---|
-| Security Engineer | `agents/stable/security-engineer.md` | When the release includes security-sensitive changes, new attack surface, or compliance-relevant modifications |
-| Mobile App Developer | `agents/stable/mobile-app-developer.md` | When the release includes a mobile client component requiring app store submission |
-| Product Manager | `agents/stable/product-manager.md` | When the release involves significant user-facing changes, a coordinated launch, or requires stakeholder communication planning |
+| Security Engineer | `crew/stable/security-engineer.md` | When the release includes security-sensitive changes, new attack surface, or compliance-relevant modifications |
+| Mobile App Developer | `crew/stable/mobile-app-developer.md` | When the release includes a mobile client component requiring app store submission |
+| Product Manager | `crew/stable/product-manager.md` | When the release involves significant user-facing changes, a coordinated launch, or requires stakeholder communication planning |
 
 ## Default interaction model
 

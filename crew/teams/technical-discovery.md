@@ -12,17 +12,17 @@ Distinct from the Architecture Design team in that it operates before design —
 
 | Persona | File | Role in this team |
 |---|---|---|
-| Project Owner | `agents/stable/project-owner.md` | Problem framing; anchors discovery to real user and business needs; prevents exploration from drifting into interesting-but-irrelevant territory |
-| System Architect | `agents/stable/system-architect.md` | Technical landscape mapping; identifies the solution space, key unknowns, and approach options |
-| Devil's Advocate | `agents/stable/devils-advocate.md` | Challenges assumptions about the problem itself — not just the solutions |
-| Domain Expert | `agents/stable/domain-expert.md` | Domain constraints, known patterns, prior art, and the mistakes everyone makes the first time in this space |
+| Project Owner | `crew/stable/project-owner.md` | Problem framing; anchors discovery to real user and business needs; prevents exploration from drifting into interesting-but-irrelevant territory |
+| System Architect | `crew/stable/system-architect.md` | Technical landscape mapping; identifies the solution space, key unknowns, and approach options |
+| Devil's Advocate | `crew/stable/devils-advocate.md` | Challenges assumptions about the problem itself — not just the solutions |
+| Domain Expert | `crew/stable/domain-expert.md` | Domain constraints, known patterns, prior art, and the mistakes everyone makes the first time in this space |
 
 ## Optional members
 
 | Persona | File | When to include |
 |---|---|---|
-| Staff / Principal Engineer | `agents/stable/staff-principal-engineer.md` | When the problem has org-level or cross-system implications that should shape the discovery |
-| Senior Developer | `agents/stable/senior-developer.md` | When implementation feasibility signals are needed to bound the option space |
+| Staff / Principal Engineer | `crew/stable/staff-principal-engineer.md` | When the problem has org-level or cross-system implications that should shape the discovery |
+| Senior Developer | `crew/stable/senior-developer.md` | When implementation feasibility signals are needed to bound the option space |
 
 ## Default interaction model
 

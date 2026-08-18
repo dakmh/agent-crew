@@ -10,18 +10,18 @@ Distinct from the Implementation team in that its subject matter is the toolchai
 
 | Persona | File | Role in this team |
 |---|---|---|
-| Build & Toolchain Engineer | `agents/stable/build-toolchain-engineer.md` | Lead voice; build systems, pipeline design, toolchain architecture, meta-programming quality |
-| DevOps / Platform Engineer | `agents/stable/devops-platform-engineer.md` | Deployment pipeline integration, infrastructure-side CI/CD concerns, secrets in pipelines |
-| Senior Developer | `agents/stable/senior-developer.md` | Developer experience perspective, implementability of toolchain changes, impact on day-to-day workflow |
-| Security Engineer | `agents/stable/security-engineer.md` | Supply chain security, pipeline security, secrets handling, dependency audit |
-| Devil's Advocate | `agents/stable/devils-advocate.md` | Stress-tests toolchain design assumptions; challenges complexity, reproducibility claims, and maintenance burden estimates |
+| Build & Toolchain Engineer | `crew/stable/build-toolchain-engineer.md` | Lead voice; build systems, pipeline design, toolchain architecture, meta-programming quality |
+| DevOps / Platform Engineer | `crew/stable/devops-platform-engineer.md` | Deployment pipeline integration, infrastructure-side CI/CD concerns, secrets in pipelines |
+| Senior Developer | `crew/stable/senior-developer.md` | Developer experience perspective, implementability of toolchain changes, impact on day-to-day workflow |
+| Security Engineer | `crew/stable/security-engineer.md` | Supply chain security, pipeline security, secrets handling, dependency audit |
+| Devil's Advocate | `crew/stable/devils-advocate.md` | Stress-tests toolchain design assumptions; challenges complexity, reproducibility claims, and maintenance burden estimates |
 
 ## Optional members
 
 | Persona | File | When to include |
 |---|---|---|
-| Systems / Infrastructure Engineer | `agents/stable/systems-infrastructure-engineer.md` | When CI/CD infrastructure design (runners, agents, self-hosted infrastructure) is in scope |
-| Tech Lead | `agents/stable/tech-lead.md` | When toolchain changes affect team-wide workflow and need decision authority |
+| Systems / Infrastructure Engineer | `crew/stable/systems-infrastructure-engineer.md` | When CI/CD infrastructure design (runners, agents, self-hosted infrastructure) is in scope |
+| Tech Lead | `crew/stable/tech-lead.md` | When toolchain changes affect team-wide workflow and need decision authority |
 
 ## Default interaction model
 

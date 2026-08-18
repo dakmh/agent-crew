@@ -1,0 +1,18 @@
+{
+  "name": "agent-crew",
+  "owner": {
+    "name": "dakmh",
+    "url": "https://github.com/dakmh"
+  },
+  "metadata": {
+    "description": "Marketplace for the agent-crew plugin: multi-persona review, design, and planning skills.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "agent-crew",
+      "source": "./",
+      "description": "Multi-persona review, design, and planning skills backed by a reusable library of personas, teams, modifiers, and standards."
+    }
+  ]
+}

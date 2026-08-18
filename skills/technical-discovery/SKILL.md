@@ -1,8 +1,20 @@
+---
+name: technical-discovery
+description: "Structured discovery of an ambiguous problem space by the Technical Discovery team before any design is committed: what is known, unknown, what options exist, and what must be resolved before design can begin. Use when a problem is fuzzy or unscoped, when asked to explore options, investigate feasibility, map unknowns, de-risk an idea, figure out 'what would it take to…', or when the user says 'we don't know enough yet', 'explore this problem', or invokes /technical-discovery."
+---
+
 # Skill: Technical Discovery
+
+> **Loading:** all repo-relative paths in this file (`skills/_conventions.md`, `crew/…`,
+> `standards/…`) resolve from the plugin root — `${CLAUDE_PLUGIN_ROOT}` when installed as a
+> plugin, the repository root in a checkout. Before running: load `skills/_conventions.md`
+> (shared protocol), the team file referenced below, every persona the team lists, and any
+> standard referenced by the skill, team, or personas.
 
 ## Command
 
-`/technical-discovery`
+`/agent-crew:technical-discovery` (installed as a plugin) — historically bare `/technical-discovery` in
+pre-plugin setups; treat both as this skill.
 
 ## Description
 
@@ -10,11 +22,11 @@ Maps an ambiguous problem space before any design is committed. Takes a problem 
 
 ## Team
 
-`agents/teams/technical-discovery.md`
+`crew/teams/technical-discovery.md`
 
 ## Interaction model
 
-Follow the team's default interaction model in `agents/teams/technical-discovery.md`. The shared protocol in `skills/_conventions.md` applies.
+Follow the team's default interaction model in `crew/teams/technical-discovery.md`. The shared protocol in `skills/_conventions.md` applies.
 
 No overrides.
 

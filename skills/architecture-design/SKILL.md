@@ -1,8 +1,20 @@
+---
+name: architecture-design
+description: "Designs new systems, services, or significant architectural changes via the Architecture Design team: recommended architecture with rationale, key decisions, known risks, and a verdict. Use when asked to design a system or service architecture, evaluate a major structural change, choose between architectural options, plan a re-architecture or platform migration, or when the user says 'design the architecture', 'how should we structure this system', or invokes /architecture-design. For decisions that shape the technical landscape long-term."
+---
+
 # Skill: Architecture Design
+
+> **Loading:** all repo-relative paths in this file (`skills/_conventions.md`, `crew/…`,
+> `standards/…`) resolve from the plugin root — `${CLAUDE_PLUGIN_ROOT}` when installed as a
+> plugin, the repository root in a checkout. Before running: load `skills/_conventions.md`
+> (shared protocol), the team file referenced below, every persona the team lists, and any
+> standard referenced by the skill, team, or personas.
 
 ## Command
 
-`/architecture-design`
+`/agent-crew:architecture-design` (installed as a plugin) — historically bare `/architecture-design` in
+pre-plugin setups; treat both as this skill.
 
 ## Description
 
@@ -12,11 +24,11 @@ Engaged when the decision will shape the technical landscape for years and the c
 
 ## Team
 
-`agents/teams/architecture-design.md`
+`crew/teams/architecture-design.md`
 
 ## Interaction model
 
-Follow the team's default interaction model in `agents/teams/architecture-design.md`. The shared protocol in `skills/_conventions.md` applies.
+Follow the team's default interaction model in `crew/teams/architecture-design.md`. The shared protocol in `skills/_conventions.md` applies.
 
 No overrides.
 

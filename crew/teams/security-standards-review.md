@@ -12,16 +12,16 @@ Distinct from the Implementation team's review activities in that it goes deeper
 
 | Persona | File | Role in this team |
 |---|---|---|
-| Security Engineer | `agents/stable/security-engineer.md` | Lead security review; threat model, vulnerability patterns, OWASP, dependency risk, data handling |
-| Code Standards Reviewer | `agents/stable/code-standards-reviewer.md` | Standards conformance, naming, pattern consistency, architectural layer adherence, documentation |
-| Senior Developer | `agents/stable/senior-developer.md` | Implementability of required changes, practical code-level concerns, hidden complexity in findings |
+| Security Engineer | `crew/stable/security-engineer.md` | Lead security review; threat model, vulnerability patterns, OWASP, dependency risk, data handling |
+| Code Standards Reviewer | `crew/stable/code-standards-reviewer.md` | Standards conformance, naming, pattern consistency, architectural layer adherence, documentation |
+| Senior Developer | `crew/stable/senior-developer.md` | Implementability of required changes, practical code-level concerns, hidden complexity in findings |
 
 ## Optional members
 
 | Persona | File | When to include |
 |---|---|---|
-| Domain Expert | `agents/stable/domain-expert.md` | When domain-specific compliance requirements (HIPAA, PCI-DSS, GDPR, etc.) apply to the code being reviewed |
-| QA Engineer | `agents/stable/qa-engineer.md` | When testability and test coverage are in scope alongside security and standards |
+| Domain Expert | `crew/stable/domain-expert.md` | When domain-specific compliance requirements (HIPAA, PCI-DSS, GDPR, etc.) apply to the code being reviewed |
+| QA Engineer | `crew/stable/qa-engineer.md` | When testability and test coverage are in scope alongside security and standards |
 
 ## Default interaction model
 

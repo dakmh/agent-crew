@@ -1,8 +1,20 @@
+---
+name: release-planning
+description: "Produces a structured release plan with a go/no-go readiness verdict via the Release Management team: release criteria evaluation, rollback plan, communication plan, and what must be resolved before proceeding. Use when asked to plan a release, assess release readiness, prepare a go/no-go, plan a rollout or rollback strategy, or plan an app store submission, or when the user says 'plan this release', 'are we ready to ship', 'go/no-go', or invokes /release-planning. Covers server-side, web, and mobile releases."
+---
+
 # Skill: Release Planning
+
+> **Loading:** all repo-relative paths in this file (`skills/_conventions.md`, `crew/…`,
+> `standards/…`) resolve from the plugin root — `${CLAUDE_PLUGIN_ROOT}` when installed as a
+> plugin, the repository root in a checkout. Before running: load `skills/_conventions.md`
+> (shared protocol), the team file referenced below, every persona the team lists, and any
+> standard referenced by the skill, team, or personas.
 
 ## Command
 
-`/release-planning`
+`/agent-crew:release-planning` (installed as a plugin) — historically bare `/release-planning` in
+pre-plugin setups; treat both as this skill.
 
 ## Description
 
@@ -12,13 +24,13 @@ Works for server-side, web, and mobile releases. For mobile, the skill explicitl
 
 ## Team
 
-`agents/teams/release-management.md`
+`crew/teams/release-management.md`
 
 Activates the **Mobile App Developer** as a required member when the release includes a mobile client component requiring app store submission. (Other optional members — Security Engineer, Product Manager — activate per the team file's "When to include" guidance.)
 
 ## Interaction model
 
-Follow the team's default interaction model in `agents/teams/release-management.md`. The shared protocol in `skills/_conventions.md` applies.
+Follow the team's default interaction model in `crew/teams/release-management.md`. The shared protocol in `skills/_conventions.md` applies.
 
 Overrides:
 - For a mobile release, the Mobile App Developer evaluates app store submission readiness in the criteria-evaluation step, and the Release Manager's synthesis must include an app store submission plan and phased rollout schedule.

@@ -8,8 +8,8 @@ A focused two-persona team for evaluating technical proposals, architectural dec
 
 | Persona | File | Role in this team |
 |---|---|---|
-| System Architect | `agents/stable/system-architect.md` | Structural analysis, feasibility, long-term implications |
-| Devil's Advocate | `agents/stable/devils-advocate.md` | Assumption stress-testing, risk identification, failure scenarios |
+| System Architect | `crew/stable/system-architect.md` | Structural analysis, feasibility, long-term implications |
+| Devil's Advocate | `crew/stable/devils-advocate.md` | Assumption stress-testing, risk identification, failure scenarios |
 
 ## Default interaction model
 

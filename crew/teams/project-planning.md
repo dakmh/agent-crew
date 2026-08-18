@@ -12,18 +12,18 @@ Distinct from the Project Owner role in other teams: the Project Owner stewards 
 
 | Persona | File | Role in this team |
 |---|---|---|
-| Product Manager | `agents/stable/product-manager.md` | Roadmap ownership, strategic framing, prioritisation rationale, success metrics |
-| Project Owner | `agents/stable/project-owner.md` | User value validation, scope discipline, delivery feasibility from a business perspective |
-| Tech Lead | `agents/stable/tech-lead.md` | Technical feasibility, effort sizing, dependency and sequencing constraints |
-| Devil's Advocate | `agents/stable/devils-advocate.md` | Challenges prioritisation assumptions, surfaces hidden costs, questions whether stated priorities reflect actual strategy |
+| Product Manager | `crew/stable/product-manager.md` | Roadmap ownership, strategic framing, prioritisation rationale, success metrics |
+| Project Owner | `crew/stable/project-owner.md` | User value validation, scope discipline, delivery feasibility from a business perspective |
+| Tech Lead | `crew/stable/tech-lead.md` | Technical feasibility, effort sizing, dependency and sequencing constraints |
+| Devil's Advocate | `crew/stable/devils-advocate.md` | Challenges prioritisation assumptions, surfaces hidden costs, questions whether stated priorities reflect actual strategy |
 
 ## Optional members
 
 | Persona | File | When to include |
 |---|---|---|
-| Senior Developer | `agents/stable/senior-developer.md` | When effort estimates need ground-level validation before committing to a plan |
-| QA Engineer | `agents/stable/qa-engineer.md` | When quality debt, testing infrastructure, or release readiness constraints affect what can be prioritised |
-| Domain Expert | `agents/stable/domain-expert.md` | When domain-specific constraints (regulatory, compliance, market timing) are a significant input to prioritisation |
+| Senior Developer | `crew/stable/senior-developer.md` | When effort estimates need ground-level validation before committing to a plan |
+| QA Engineer | `crew/stable/qa-engineer.md` | When quality debt, testing infrastructure, or release readiness constraints affect what can be prioritised |
+| Domain Expert | `crew/stable/domain-expert.md` | When domain-specific constraints (regulatory, compliance, market timing) are a significant input to prioritisation |
 
 ## Default interaction model
 

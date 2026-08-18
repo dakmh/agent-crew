@@ -1,8 +1,20 @@
+---
+name: feature-design
+description: "Shapes a feature request or user story into a buildable specification via the Feature Design team: agreed scope, recommended technical approach, testable acceptance criteria, and a readiness verdict. Use when asked to design a feature, spec a feature, turn a user story or request into an implementable plan, define scope and acceptance criteria, or when the user says 'design this feature', 'spec this out', 'make this buildable', or invokes /feature-design. Assumes the why is established; covers the what and how."
+---
+
 # Skill: Feature Design
+
+> **Loading:** all repo-relative paths in this file (`skills/_conventions.md`, `crew/…`,
+> `standards/…`) resolve from the plugin root — `${CLAUDE_PLUGIN_ROOT}` when installed as a
+> plugin, the repository root in a checkout. Before running: load `skills/_conventions.md`
+> (shared protocol), the team file referenced below, every persona the team lists, and any
+> standard referenced by the skill, team, or personas.
 
 ## Command
 
-`/feature-design`
+`/agent-crew:feature-design` (installed as a plugin) — historically bare `/feature-design` in
+pre-plugin setups; treat both as this skill.
 
 ## Description
 
@@ -12,11 +24,11 @@ Assumes the *why* is established — this team focuses on the *what* and *how* a
 
 ## Team
 
-`agents/teams/feature-design.md`
+`crew/teams/feature-design.md`
 
 ## Interaction model
 
-Follow the team's default interaction model in `agents/teams/feature-design.md`. The shared protocol in `skills/_conventions.md` applies.
+Follow the team's default interaction model in `crew/teams/feature-design.md`. The shared protocol in `skills/_conventions.md` applies.
 
 No overrides.
 

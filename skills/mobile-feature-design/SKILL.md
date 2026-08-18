@@ -1,8 +1,20 @@
+---
+name: mobile-feature-design
+description: "Shapes a feature into a buildable specification for mobile apps via the Mobile Development team: scope, platform-aware technical approach, testable acceptance criteria, and a readiness verdict, covering platform targeting, app store policy, offline behaviour, and device/OS constraints. Use when asked to design or spec a mobile feature, an iOS/Android feature, or anything app-store-bound, or when the user says 'design this mobile feature', 'spec this for the app', or invokes /mobile-feature-design."
+---
+
 # Skill: Mobile Feature Design
+
+> **Loading:** all repo-relative paths in this file (`skills/_conventions.md`, `crew/…`,
+> `standards/…`) resolve from the plugin root — `${CLAUDE_PLUGIN_ROOT}` when installed as a
+> plugin, the repository root in a checkout. Before running: load `skills/_conventions.md`
+> (shared protocol), the team file referenced below, every persona the team lists, and any
+> standard referenced by the skill, team, or personas.
 
 ## Command
 
-`/mobile-feature-design`
+`/agent-crew:mobile-feature-design` (installed as a plugin) — historically bare `/mobile-feature-design` in
+pre-plugin setups; treat both as this skill.
 
 ## Description
 
@@ -14,13 +26,13 @@ Assumes the *why* is established — this team focuses on the *what* and *how* a
 
 ## Team
 
-`agents/teams/feature-design.md`
+`crew/teams/feature-design.md`
 
 Activates the **Mobile App Developer** and **UX Reviewer** as required members (not optional) for every run of this skill.
 
 ## Interaction model
 
-Follow the team's default interaction model in `agents/teams/feature-design.md`. The shared protocol in `skills/_conventions.md` applies.
+Follow the team's default interaction model in `crew/teams/feature-design.md`. The shared protocol in `skills/_conventions.md` applies.
 
 Overrides:
 - Add a **Mobile App Developer** platform-analysis step after the System Architect's technical analysis and before the Senior Developer's implementability check — target platforms and OS versions, app store policy implications, offline and network-degraded behaviour, platform-specific APIs, and mobile CI/CD or distribution considerations.
