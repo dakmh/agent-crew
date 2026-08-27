@@ -35,6 +35,41 @@ When a skill is invoked:
 Unless a skill states otherwise, it has no external dependencies — context comes from
 the user directly.
 
+## Execution substrate
+
+Every team runs **in-context** by default: one Claude session reads each persona file and
+writes their section in character, sequentially, in its own context. Every interaction model
+in `crew/teams/` assumes this unless the team file states otherwise — cross-examination, a
+named synthesiser, and dissent all require personas to see each other's text, which only a
+shared context guarantees. In-context is also the required fallback whenever a declared
+alternative's tool is unavailable.
+
+A team file may instead declare **subagent dispatch** for a step whose members have no
+cross-persona visibility requirement — no cross-examination, no dependency on a co-member's
+draft. Independent-analysis-then-single-consolidator steps qualify; anything with a
+cross-examination step does not, because isolated subagents cannot see each other's output.
+Where declared, each such persona runs as an ordinary background subagent: the `Agent` tool
+called without a `name` argument, one call per persona, all independent calls issued together
+so they run concurrently. This is deliberately **not** Claude Code's experimental agent-teams
+feature (named `Agent` calls, `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`, mailbox messaging
+between teammates — [docs](https://code.claude.com/docs/en/agent-teams)); agent-crew's "team" is
+a persona grouping defined in `crew/teams/`, unrelated to that harness feature beyond sharing a
+word. A plain subagent call ([docs](https://code.claude.com/docs/en/sub-agents)) gets an
+isolated context, no inherited conversation history, and returns a summarized result to
+whichever context dispatched it — consolidation across dispatched personas is done by whoever
+dispatched them, reading all returned reports once they're back.
+
+Rules that apply regardless of which substrate a team declares:
+- The team file states the dispatch mechanics (which members, which subagent type, what each
+  one's prompt contains); a skill does not re-declare them.
+- **A run states near the top of its output which substrate it used.** An in-context single
+  pass and a dispatched run must never be visually indistinguishable to the reader.
+- If a team declares subagent dispatch but the `Agent` tool is unavailable, fall back to
+  in-context and say so in the same disclosure.
+
+`crew/teams/security-standards-review.md` is the current example of a team using subagent
+dispatch — see it for the pattern before adding another.
+
 ## Running the interaction model
 
 - Each persona responds **in character** — voice, priorities, and concerns reflect their

@@ -32,6 +32,16 @@ Code Review Severity (P0–P4 finding classification), Review Verdicts (Proceed 
 ### Modifiers
 optimistic/pessimistic (disposition), pragmatist/purist (methodology), cautious/move-fast (risk appetite) — pairs mutually exclusive. Applied at invocation: `/review-proposal [architect:cautious] [dev:pragmatist]`. Full rules in `skills/_conventions.md`.
 
+## Execution
+
+Who actually runs a team — in-context roleplay vs. real subagent dispatch — is a runtime rule,
+not an authoring note, so it lives in `skills/_conventions.md` (loaded with every skill run)
+rather than here. Summary for orientation: in-context roleplay is the default and the required
+fallback; a team file may declare subagent dispatch for steps with no cross-persona visibility
+requirement, using plain background `Agent` calls — **not** Claude Code's experimental,
+message-passing agent-teams feature, a same-named but different thing. Full rules and the
+worked example are in `skills/_conventions.md` and `crew/teams/security-standards-review.md`.
+
 ## Conventions (authoring in this repo)
 
 - Personas are self-contained and task-agnostic. Teams define *who* participates and *how* they interact. Skills define the task, deliverable, and output format. Standards are authoritative references cited by path.

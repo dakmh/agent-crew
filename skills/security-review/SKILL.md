@@ -32,15 +32,21 @@ Conditionally activates optional members:
 
 ## Interaction model
 
-Follow the team's default interaction model in `crew/teams/security-standards-review.md`. The shared protocol in `skills/_conventions.md` applies.
+Follow the team's default interaction model in `crew/teams/security-standards-review.md`,
+**including its Execution section** — this team dispatches real subagents by default rather
+than running fully in-context; that's a property of the team, not an override here. The shared
+protocol in `skills/_conventions.md` applies.
 
 No overrides.
 
 ## Context gathering
 
-Per `skills/_conventions.md`. Required context: code, pasted directly or described by component.
+Per `skills/_conventions.md`. Required context: code, pasted directly, described by component,
+or given as a path/file reference in the current checkout (dispatched subagents can `Read`/`Grep`
+a path themselves; a paste is still fine and is required when the code isn't in a checkout this
+session can reach).
 
-> "Please paste the code you'd like reviewed, or describe the component if it's too large to paste in full. Include any relevant context: what it does, what system it's part of, and any known constraints."
+> "Please paste the code you'd like reviewed, describe the component if it's too large to paste in full, or point me at the file(s)/path in this checkout. Include any relevant context: what it does, what system it's part of, and any known constraints."
 
 Optional focus questions:
 - **Coding standards**: "Are there specific coding standards, style guides, or architectural patterns this code should conform to? If not, I'll apply general best practices."
