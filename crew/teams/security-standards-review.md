@@ -87,7 +87,7 @@ being independent — resolved here in favour of independence, since nothing in 
 design otherwise needs the Senior Developer to see findings before reviewing the code.
 
 ### 4. Classification
-Findings are classified per the code review severity standard in `standards/code-review-severity.md` — load it with this team. Each finding is graded independently against the standard's absolute criteria and labelled with both its P-value and verbal tier (P0 — Blocker through P4 — Info). Security findings additionally carry a CVSS base score and vector per the standard's security findings protocol.
+Findings are classified per the code review severity standard in `standards/code-review-severity.md` — load it with this team, along with `standards/risk-assessment.md`, which the Security Engineer persona cites for its disposition scale (must fix before shipping / should fix soon / accept and document / monitor). Loading it is not optional: a persona that references a standard by path and is handed only its own text will improvise that scale from memory, which may happen to match and is not a design. Each finding is graded independently against the standard's absolute criteria and labelled with both its P-value and verbal tier (P0 — Blocker through P4 — Info). Security findings additionally carry a CVSS base score and vector per the standard's security findings protocol.
 
 ### 5. Output
 Final structured findings report — see output format below.
