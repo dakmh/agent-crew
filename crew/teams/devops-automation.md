@@ -65,3 +65,4 @@ The **Build & Toolchain Engineer** synthesises all input, incorporating the DA's
 - Generated code quality is in scope — if a code generator is being reviewed, its output quality is a first-class concern
 - Pipeline reliability is treated with the same rigour as application reliability — flaky pipelines are not acceptable
 - The Devil's Advocate's stress test often surfaces the most useful concern in toolchain work: "what does maintaining this look like in 18 months?"
+- Risk dispositions follow `standards/risk-assessment.md` — load it with this team, since the Security Engineer cites it by path. Supply chain and credential-handling findings in particular carry dispositions, not just severities

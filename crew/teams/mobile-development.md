@@ -78,3 +78,4 @@ The Mobile App Developer produces a final structured output:
 - The Mobile App Developer and DevOps/Platform Engineer jointly own the CI/CD and distribution pipeline — neither can sign off independently on release readiness
 - UX Reviewer is a core member, not optional, because mobile UX patterns differ from web; a technically correct implementation that violates platform conventions creates a poor user experience and may affect app store review outcomes
 - Offline and network-degraded behaviour must be explicitly addressed — "we'll handle connectivity issues later" is not a valid plan for a mobile implementation
+- Risk dispositions follow `standards/risk-assessment.md` — load it with this team, since the Security Engineer cites it by path. It composes with `standards/mobile-release-readiness.md`: the app store review window is what turns a "should fix soon" into a "must fix before shipping"

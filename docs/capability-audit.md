@@ -42,7 +42,21 @@ unless a human acts on that record afterward.
    that would reduce boilerplate (e.g. a cheaper way to express the loading preamble every
    SKILL.md currently repeats by hand).
 
-5. **Decision log health.** Are there consequential changes to the library since the last audit
+5. **Which copy of the library executes.** Run any skill and read the base directory it reports.
+   With the marketplace registered as a `directory` source, three runs on 2026-08-30 executed
+   from the working checkout rather than from `~/.claude/plugins/cache/…`, contradicting the
+   assumption written into that run's brief (`docs/reviews/2026-08-30-overnight-run/`). This
+   decides whether a library defect found mid-run can be fixed and re-exercised in the same run,
+   so re-check it rather than inheriting the answer — and note which install shape was tested,
+   since a `directory` source and a fetched marketplace need not behave alike.
+
+6. **Library consistency.** Two checks that regress silently as personas and teams are added:
+   every standard a persona cites by path is named by every team containing that persona (see
+   `skills/_conventions.md` → Sources of authority), and every skill appears in both
+   `README.md`'s table and `CLAUDE.md`'s index. Both are mechanical — script them rather than
+   eyeballing them.
+
+7. **Decision log health.** Are there consequential changes to the library since the last audit
    that *don't* have a `docs/reviews/` record? If so, that's a process gap worth naming even
    though it's not a capability question.
 

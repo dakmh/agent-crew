@@ -65,3 +65,4 @@ The **Systems / Infrastructure Engineer** synthesises all input, incorporating t
 - Environment parity is a first-class concern — differences between dev and production that are not explicitly justified and documented are defects
 - Onboarding friction compounds across every new team member; the Senior Developer's experience assessment is not cosmetic
 - The Devil's Advocate is particularly useful for challenging "it works on my machine" assumptions embedded in environment designs
+- Risk dispositions follow `standards/risk-assessment.md` — load it with this team, since the Security Engineer cites it by path. An environment risk accepted as "only affects dev" needs that claim written down as an acceptance rather than assumed

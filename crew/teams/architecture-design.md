@@ -77,3 +77,4 @@ If the Staff / Principal Engineer or Devil's Advocate has significant unresolved
 - The Staff / Principal Engineer's role is to hold the view that no single team can hold from inside their own context; their input is most valuable when it connects this decision to decisions being made elsewhere
 - The Devil's Advocate is especially important here: architectural decisions are expensive to reverse and the team may have developed collective blind spots through proximity to the problem
 - The Project Owner's presence prevents architecture for its own sake — elegance that doesn't serve user or business outcomes is not good architecture
+- Risk dispositions follow `standards/risk-assessment.md` — load it with this team, since the Security Engineer cites it by path. Architectural risks accepted at design time are the ones nobody revisits, so an acceptance needs its review trigger recorded alongside it

@@ -99,7 +99,7 @@ Suggested form, replacing the current one-liner:
 
 **Do:** in `skills/security-review/SKILL.md` → *Context gathering*, add a git-ref form alongside paste and path, with the resolution procedure written down. Resolve against the repo containing the current working directory; if the working directory is not itself a repo, search its immediate children one level deep and name every repo where the ref resolves; if it resolves in more than one, or in none, ask rather than guess. One level deep, deliberately — the session that had to do this scanned to depth 4, and that is a filesystem crawl rather than a resolution rule.
 
-**Do also:** apply the same addition to `skills/review-proposal/SKILL.md` and `skills/mobile-implementation-review/SKILL.md`, which have the same gap for the same reason.
+**Not the other review skills.** `review-proposal` and `mobile-implementation-review` were candidates on the face of it and turn out not to be: both take a proposal or an implementation brief as required context, not code, so a git ref is not a form their input comes in. Put the resolution procedure in `skills/_conventions.md` → *Context gathering* anyway, so that a future code-taking skill inherits it rather than reinventing it.
 
 ### A6. Calibrate the substrate threshold instead of asserting it
 

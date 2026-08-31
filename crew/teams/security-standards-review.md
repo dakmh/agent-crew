@@ -48,10 +48,18 @@ Dispatch mechanics for step 2:
   itself if it lives in the checkout), any coding-standards or domain-compliance context
   gathered from the user, and an instruction to return findings only, in the persona's own
   voice, with no meta-commentary about being a subagent.
-- **Fallback:** for a small, well-defined change (roughly: a single file or a diff under ~150
-  lines) or when the `Agent` tool is unavailable, collapse to in-context — one session voices
-  all active members sequentially, per the default substrate in `skills/_conventions.md`. State
-  which path was taken at the top of the output either way.
+- **Fallback:** collapse to in-context — one session voicing all active members sequentially,
+  per the default substrate in `skills/_conventions.md` — when either of two things is true:
+  the changeset is **at or below roughly 150 changed lines** (added plus deleted, as
+  `git diff --stat` reports them, regardless of how many files they span), or the `Agent` tool
+  is unavailable. File count does not enter into it: this rule previously read "a single file
+  or a diff under ~150 lines", and a 2-file / 82-line changeset satisfied one clause and not
+  the other, leaving a run to adjudicate mid-review. One quantity, one test.
+- The branch can be forced with `[substrate:in-context]` or `[substrate:dispatch]` at
+  invocation — see `skills/_conventions.md` → *Choosing the branch*. Say so in the disclosure
+  when it was forced rather than selected by size.
+- State which path was taken at the top of the output either way, in the form
+  `skills/_conventions.md` → *The disclosure line* defines.
 
 ## Default interaction model
 
@@ -126,8 +134,9 @@ Final structured findings report — see output format below.
 **Overall** (per `standards/review-verdicts.md`)**:** [Proceed / Proceed with conditions / Do not proceed]
 ```
 
-Prepend a one-line disclosure above `### Summary` stating the substrate used, e.g. `_Dispatched as
-N parallel subagents._` or `_Run in-context (small changeset)._`
+Prepend the disclosure line above `### Summary`, in the form `skills/_conventions.md` → *The
+disclosure line* defines: substrate and member names, the changeset size that selected the branch
+and which side of the threshold it fell, and the library root the run loaded from.
 
 ## Interaction model overrides
 
@@ -151,4 +160,5 @@ per-persona independence via message-passing teammates rather than in-context ro
 - This team reviews code, not people — findings are about the code, not the author
 - P0 findings are non-negotiable; no code with an open P0 finding should be merged or deployed
 - Pressure-testing findings for practicality happens at consolidation, using the Senior Developer's independent notes — see step 3. A security finding that requires an impractical fix needs a practical alternative proposed alongside it.
+- **When this team is a gate inside an automated loop, dispatch once per unit of work that will become one commit** — never per intermediate change. Three parallel subagents with substantial prompts and substantial returns is the most expensive single action available to a run of that shape, and batching to the commit is what keeps the review affordable without making it rarer than the commits it gates. This was learned by exhausting a session's usage on the first cycle of an unattended run; see `docs/reviews/2026-08-30-overnight-run/`.
 - Systemic patterns are as important as individual findings — if the same issue appears ten times, the root cause (missing linting rule, unclear standard, missing training) is the real finding

@@ -41,12 +41,20 @@ No overrides.
 
 ## Context gathering
 
-Per `skills/_conventions.md`. Required context: code, pasted directly, described by component,
-or given as a path/file reference in the current checkout (dispatched subagents can `Read`/`Grep`
-a path themselves; a paste is still fine and is required when the code isn't in a checkout this
-session can reach).
+Per `skills/_conventions.md`. Required context: code, in any of four forms — pasted directly,
+described by component, given as a path/file reference in the current checkout, or given as a
+**git ref** (a commit SHA, branch, tag, range like `HEAD~3..HEAD`, or the working tree).
+Dispatched subagents can `Read`/`Grep` a path or run `git show`/`git diff` themselves; a paste
+is still fine and is required when the code isn't in a checkout this session can reach.
 
-> "Please paste the code you'd like reviewed, describe the component if it's too large to paste in full, or point me at the file(s)/path in this checkout. Include any relevant context: what it does, what system it's part of, and any known constraints."
+Resolve a git ref per `skills/_conventions.md` → *Resolving a git ref*, and **state which repo
+and which diff you resolved it to** before reviewing. A bare SHA handed to a session rooted
+above several repos is a common invocation and an ambiguous one.
+
+The ref also supplies the changeset size that selects the execution substrate — see the team
+file's Execution section.
+
+> "Please paste the code you'd like reviewed, describe the component if it's too large to paste in full, point me at the file(s)/path in this checkout, or give me a git ref (a commit, branch, or range). Include any relevant context: what it does, what system it's part of, and any known constraints."
 
 Optional focus questions:
 - **Coding standards**: "Are there specific coding standards, style guides, or architectural patterns this code should conform to? If not, I'll apply general best practices."

@@ -31,6 +31,8 @@ To try changes from a local checkout without installing: `claude --plugin-dir /p
 
 Updates: `/plugin marketplace update agent-crew` pulls the latest published version.
 
+**Which copy executes.** Don't assume; every run reports it. Where the marketplace is registered with a `directory` source pointing at a checkout, runs have been observed executing from that checkout rather than from the installed snapshot in `~/.claude/plugins/cache/` — so edits to the checkout are live, and a defect found mid-run can be fixed and re-exercised in the same session. That is one observation in one install shape, not a guarantee, which is why every skill run states its resolved library root in its disclosure line (`skills/_conventions.md` → *The disclosure line*) and why `docs/capability-audit.md` re-checks it. Read the line rather than reasoning about it.
+
 ### Legacy installation (CLAUDE.md import)
 
 Before the plugin existed, agent-crew was wired in by adding it as a git submodule and importing `@.agent-crew/CLAUDE.md` from the host project's `CLAUDE.md`. That still works — `CLAUDE.md` keeps a compact index for it — but it costs always-on context and per-machine setup. Prefer the plugin; remove the import once a fresh session confirms the plugin's skills are registered.

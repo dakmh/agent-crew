@@ -42,6 +42,10 @@ requirement, using plain background `Agent` calls — **not** Claude Code's expe
 message-passing agent-teams feature, a same-named but different thing. Full rules and the
 worked example are in `skills/_conventions.md` and `crew/teams/security-standards-review.md`.
 
+Every run discloses its substrate, the size that selected it, and the library root it loaded
+from. When working in this checkout, that last field is how you tell whether your edits are what
+just executed — see `README.md` → *Which copy executes*.
+
 ## Conventions (authoring in this repo)
 
 - Personas are self-contained and task-agnostic. Teams define *who* participates and *how* they interact. Skills define the task, deliverable, and output format. Standards are authoritative references cited by path.
