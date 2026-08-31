@@ -20,6 +20,7 @@ Check each one, and re-check all of them if the machine has rebooted. *(These ar
 - [ ] **Resume prompt in place** at `<project>/.agent-crew/resume-prompt.md`, from `templates/resume-prompt.md`, with its fields filled in.
 - [ ] **Working branch cut**, not `main`, in every repo the run will touch.
 - [ ] **agent-crew installed and enabled** (`claude plugin list`) if the run uses a review gate.
+- [ ] **Run environment carried in `.claude/settings.local.json`**, not prefixed onto each command. Variables the run depends on belong in that file's `env` block, which puts them in the environment of every tool call in both VS Code and the CLI — a per-invocation prefix is one forgotten command away from a run that silently means nothing. It is gitignored and machine-specific, so a fresh clone or a second machine will not have it: create it as a precondition rather than assuming it survived.
 
 ---
 ---
@@ -39,6 +40,10 @@ Check for an entry in flight — a `begin` with no `end`. **In flight is not the
 *(Every cycle, not once at launch, and by value rather than by claim.)*
 
 Run `python <agent-crew>/scripts/preflight.py --check`. If any assertion fails, run `runlog.py stop --reason environment "<what failed>"` and stop. The environment is not what this run assumes and nothing after that point means anything.
+
+**Verify the environment variables rather than setting them.** They come from `.claude/settings.local.json` and are already in every tool call's environment, so a cycle that sets them per invocation is testing something other than what will run unattended. Read them back by value — from a test-harness header line if the suite prints one — and stop if any names an unexpected path, or a lenient mode where the run assumed strict.
+
+**Name the interpreter explicitly, and say why.** A project's virtualenv is usually not what a bare `python` resolves to: the system default may be a newer version with none of the project's compiled dependencies installed, so the suite fails to start or, worse, collects a different set of tests than the one the run's criteria were written against. Give the exact path — `./venv/Scripts/python.exe` on Windows, `./venv/bin/python` elsewhere — and state the version the environment was built from.
 
 `<Name the destructive surface explicitly, and what proves it is out of reach — e.g. "the archive drive is detached by design: if `E:` resolves at all, stop and log it. Nothing in this run may touch `E:/00_Photos`.">`
 
