@@ -1,10 +1,39 @@
 # Improvement plan — unattended runs and the review gate
 
-**Status:** proposal, nothing implemented. **Date:** 2026-08-30. **Inputs:** the five records in this folder, plus a direct audit of the library performed while writing this.
+**Status:** phases 1–3 implemented 2026-08-30; phases 4–5 open. See *Implementation status* below. **Date:** 2026-08-30. **Inputs:** the five records in this folder, plus a direct audit of the library performed while writing this.
 
 **What this plan is for.** One unattended run on 2026-08-30 produced good work and a bad process: it stopped after a single cycle and nothing restarted it for nine hours. The work items landed, the review gate performed well, and the failure was entirely in how the run was bounded and triggered. This plan turns that into changes to agent-crew: directives in the library, helper scripts that did not exist, and a prompt template that encodes what the run had to learn the hard way.
 
 **Design constraint, stated up front.** Everything proposed here must work for someone on Pro, Max, Team, Enterprise, or a raw API key. That rules out the obvious fix. It is the reason [Workstream B](#3-workstream-b--tooling-and-helper-scripts) is built on the OS scheduler and the `claude` CLI rather than on cloud routines, and the reason cloud routines appear only as an optional upgrade.
+
+---
+
+## 0. Implementation status
+
+Recorded here rather than in the sequencing table so that a reader knows immediately which parts of this document describe the repo and which describe an intention.
+
+| Item | State |
+|---|---|
+| A1 standards loading | **Done** — rule in `_conventions.md`, four teams updated |
+| A2 substrate threshold | **Done** — one quantity, one test |
+| A3 / A4 disclosure line | **Done** — substrate, size, and library root |
+| A5 git ref as context | **Done** for `security-review`; the other two review skills take briefs rather than code and were left alone |
+| A6 `[substrate:…]` override | **Done**; the threshold itself stays unvalidated by design until runs accumulate |
+| A7 readiness standard | **Done** — `standards/unattended-run-readiness.md` |
+| A8 review cadence in a loop | **Done** |
+| B0 `scripts/` runtime | **Accepted** by the repo owner, with the constraints as written |
+| B1 `runlog.py` | **Done**, exercised by hand including the ragged-tail and stop paths |
+| B2 `preflight.py` | **Done** — pulled forward from phase 4, because the brief template references it |
+| B3 `watchdog.py` + installers | **Done**, exercised with a stub `claude`; both installers dry-run clean |
+| B4 `lint.py` | **Not built** — phase 4 |
+| C1 operator guide | **Done** — `docs/unattended-runs.md` |
+| C2 brief template | **Done** — `templates/unattended-run-brief.md` |
+| C3 resume prompt | **Done** |
+| C4 a brief-writing skill | **Deliberately not built** — see the reasoning in C4 |
+
+**Not yet validated end to end.** The phase-2 test named in §6 — kill a real session mid-cycle, confirm the watchdog restarts it, confirm the in-flight entry is reconciled rather than redone — has not been run. Until it has, the watchdog is code that works in a harness rather than a trigger known to fire. That is precisely the distinction the *Durable trigger* gate exists to draw, and it applies to this plan's own work.
+
+One defect was found by testing rather than by review, and is worth recording because it is the class of thing that would have been invisible: the watchdog's own log notes initially counted as liveness, so a failed restart reset the staleness clock and delayed its own retry by a full interval. Watchdog-sourced records are now excluded from the liveness computation.
 
 ---
 

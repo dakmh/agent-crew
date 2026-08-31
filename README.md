@@ -59,6 +59,12 @@ Modifiers adjust how a persona weights and communicates its concerns:
 /agent-crew:review-proposal [architect:cautious] [dev:pragmatist]
 ```
 
+## Unattended runs
+
+Leaving an agent to work for hours without a human watching needs three things the library did not have: a trigger that survives the session ending, a log that says whether the run is dead or sleeping, and a budget in the unit that actually runs out. `docs/unattended-runs.md` is the operator guide, `standards/unattended-run-readiness.md` is the gate checklist, and `scripts/` plus `templates/` are the mechanics — all optional, all standard-library Python, nothing to install.
+
+The short version: **no scheduling mechanism inside a Claude Code session survives that session ending**, including both forms of `/loop`. The trigger has to come from the OS scheduler (works on every plan) or a cloud routine (where the account has one), and neither grants immunity to usage limits — they convert a stop into a delay.
+
 ## Structure
 
 ```
@@ -129,8 +135,19 @@ agent-crew/
     review-verdicts.md             ← fixed verdict scale: Proceed / with conditions / Do not proceed
     risk-assessment.md             ← likelihood/impact rating, dispositions, risk acceptance records
     mobile-release-readiness.md    ← app store submission checklist, review-window risk calculus
+    unattended-run-readiness.md    ← gates for a run left working without a human watching
+  scripts/                         ← optional helpers for unattended runs (stdlib Python, no install)
+    runlog.py                      ← write-ahead run log; `status --json` for tooling
+    watchdog.py                    ← restarts a stalled run; fired by the OS scheduler
+    preflight.py                   ← environment assertions, declared per project
+    install-watchdog-*.{ps1,sh}    ← Scheduled Task / cron registration, both with --dry-run
+  templates/                       ← fill-in-the-blanks documents
+    unattended-run-brief.md        ← the run prompt
+    resume-prompt.md               ← what the watchdog sends on recovery
+    preflight.example.json         ← starting point for the assertions
   docs/
     optimization-plan.md           ← analysis & roadmap
+    unattended-runs.md             ← operator guide for long runs
     reviews/                       ← decision records produced with agent-crew itself
 ```
 

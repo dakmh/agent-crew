@@ -1,0 +1,31 @@
+{
+  "_comment": [
+    "Copy to <project>/.agent-crew/preflight.json and replace every assertion.",
+    "Assert by value, never by claim: 'the tests pass' is nearly worthless because a suite",
+    "that silently skips the tests which would have caught a wrong environment reports green.",
+    "Name the destructive surface and assert that it is out of reach.",
+    "See standards/unattended-run-readiness.md and scripts/preflight.py."
+  ],
+  "assertions": [
+    {
+      "name": "test runner is pointed at the sandbox, in strict mode",
+      "run": "./venv/Scripts/python.exe -m pytest --collect-only -q",
+      "expect_stdout_contains": "sandbox [strict]: C:/Sandbox/project"
+    },
+    {
+      "name": "the real archive drive is detached",
+      "run": "python -c \"import os,sys; sys.exit(1 if os.path.exists('E:/') else 0)\"",
+      "expect_exit": 0
+    },
+    {
+      "name": "on a working branch, not main",
+      "run": "git rev-parse --abbrev-ref HEAD",
+      "expect_stdout_not_matches": "^(main|master)$"
+    },
+    {
+      "name": "no uncommitted changes carried in from a previous session",
+      "run": "git status --porcelain",
+      "expect_stdout_not_matches": "\\S"
+    }
+  ]
+}

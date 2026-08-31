@@ -27,7 +27,7 @@ Paths: `skills/<command>/SKILL.md`, `crew/{teams,stable}/<stem>.md`, `crew/modif
 Junior Developer, Senior Developer, Tech Lead, Staff / Principal Engineer, System Architect, Domain Expert, Product Manager, Project Owner, Devil's Advocate, QA Engineer, Security Engineer, DevOps / Platform Engineer, Build & Toolchain Engineer, Systems / Infrastructure Engineer, Code Standards Reviewer, UX Reviewer, Consolidation Architect, Mobile App Developer, Release Manager, Digital Fabrication Engineer, Inkscape Extension Developer, Woodworking / Joinery Specialist, 2D Vector Graphics Engineer, 3D Vector Graphics Engineer
 
 ### Standards
-Code Review Severity (P0–P4 finding classification), Review Verdicts (Proceed / Proceed with conditions / Do not proceed), Risk Assessment (likelihood/impact, dispositions), Mobile Release Readiness (app store submission gates)
+Code Review Severity (P0–P4 finding classification), Review Verdicts (Proceed / Proceed with conditions / Do not proceed), Risk Assessment (likelihood/impact, dispositions), Mobile Release Readiness (app store submission gates), Unattended Run Readiness (gates for a run left without a human watching)
 
 ### Modifiers
 optimistic/pessimistic (disposition), pragmatist/purist (methodology), cautious/move-fast (risk appetite) — pairs mutually exclusive. Applied at invocation: `/review-proposal [architect:cautious] [dev:pragmatist]`. Full rules in `skills/_conventions.md`.
@@ -45,6 +45,14 @@ worked example are in `skills/_conventions.md` and `crew/teams/security-standard
 Every run discloses its substrate, the size that selected it, and the library root it loaded
 from. When working in this checkout, that last field is how you tell whether your edits are what
 just executed — see `README.md` → *Which copy executes*.
+
+## Unattended runs
+
+`scripts/` (run log, watchdog, preflight), `templates/` (run brief, resume prompt, preflight
+assertions), `docs/unattended-runs.md` (the operator guide), and
+`standards/unattended-run-readiness.md` (the gates). Read the guide before setting one up; the
+short version is that no scheduling mechanism inside a Claude Code session survives that session
+ending, so the trigger has to come from the OS scheduler or a cloud routine.
 
 ## Conventions (authoring in this repo)
 
