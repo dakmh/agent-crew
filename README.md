@@ -1,104 +1,79 @@
 # agent-crew
 
-A reusable library of Claude agent personas, team compositions, modifiers, and skills for use with Claude Code.
+A reusable library of Claude agent personas, team compositions, modifiers, skills, and standards, distributed as a Claude Code plugin.
 
 ## Concept
 
 Instead of re-specifying who you want involved and how they should interact every time you start a task, `agent-crew` lets you define those things once and invoke them by name.
 
 ```
-/feature-design
-/project-planning
-/release-planning
+/agent-crew:feature-design
+/agent-crew:project-planning
+/agent-crew:release-planning
 ```
 
 ...is shorthand for: load the right team, adopt each persona authentically, run the defined interaction model, and return structured output — all from a standing start.
 
-## Quick-start installation
+## Installation
 
-> **These steps are written to be executed by Claude Code.** If you are in a Claude Code session (including web or mobile), you can simply say: *"Please install the github/dakmh/agent-crew project in this repo"* and Claude will follow the steps below.
-
-### Steps
-
-**1. Add agent-crew as a git submodule**
-
-```bash
-git submodule add https://github.com/dakmh/agent-crew.git .agent-crew
-```
-
-**2. Add a SessionStart hook to initialise the submodule**
-
-In `.claude/settings.json`, add the following hook. If that file already exists, merge the `SessionStart` entry into the existing `hooks` object rather than replacing the file.
-
-```json
-{
-  "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "git submodule update --init --recursive"
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-**3. Import agent-crew into the project's CLAUDE.md**
-
-Add the following line to the project's `CLAUDE.md` (create the file if it does not exist). Place it at or near the top so it loads before any project-specific instructions:
+This repository is both the plugin and its marketplace. In any Claude Code session:
 
 ```
-@.agent-crew/CLAUDE.md
+/plugin marketplace add dakmh/agent-crew
+/plugin install agent-crew@agent-crew
 ```
 
-**4. Commit everything**
+The install prompt asks for a scope (user = every project, project = this repo's collaborators, local = just you here). If the install summary says `Run /reload-plugins to activate.`, run that; otherwise the skills register at the next session start.
 
-```bash
-git add .agent-crew .gitmodules .claude/settings.json CLAUDE.md
-git commit -m "Install agent-crew"
-```
+Skills load just-in-time: only their one-line descriptions are in context until one is invoked, so the library costs almost nothing when idle.
 
-### After installation
+To try changes from a local checkout without installing: `claude --plugin-dir /path/to/agent-crew`.
 
-Skills are immediately available in any Claude Code session. Invoke by name:
+Updates: `/plugin marketplace update agent-crew` pulls the latest published version.
 
-```
-/project-planning
-/feature-design
-/mobile-feature-design
-/release-planning
-```
+**Which copy executes.** Don't assume; every run reports it. Where the marketplace is registered with a `directory` source pointing at a checkout, runs have been observed executing from that checkout rather than from the installed snapshot in `~/.claude/plugins/cache/` — so edits to the checkout are live, and a defect found mid-run can be fixed and re-exercised in the same session. That is one observation in one install shape, not a guarantee, which is why every skill run states its resolved library root in its disclosure line (`skills/_conventions.md` → *The disclosure line*) and why `docs/capability-audit.md` re-checks it. Read the line rather than reasoning about it.
+
+### Legacy installation (CLAUDE.md import)
+
+Before the plugin existed, agent-crew was wired in by adding it as a git submodule and importing `@.agent-crew/CLAUDE.md` from the host project's `CLAUDE.md`. That still works — `CLAUDE.md` keeps a compact index for it — but it costs always-on context and per-machine setup. Prefer the plugin; remove the import once a fresh session confirms the plugin's skills are registered.
 
 ## Skills
 
 | Command | Description |
 |---|---|
-| `/review-proposal` | Multi-persona evaluation of a technical proposal |
-| `/technical-discovery` | Maps an ambiguous problem space before design begins |
-| `/feature-design` | Shapes a feature into a buildable specification |
-| `/architecture-design` | Designs new systems or significant architectural changes |
-| `/project-planning` | Prioritised plan for a sprint, quarter, or roadmap segment |
-| `/mobile-feature-design` | Feature design extended with platform, app store, and offline concerns |
-| `/mobile-implementation-review` | Mobile implementation readiness across platform, CI/CD, test coverage, and security |
-| `/release-planning` | Release plan with go/no-go verdict, rollback plan, and communication plan |
-| `/security-review` | Code-level security and standards review; returns P0–P4 findings report per the code review severity standard |
+| `/agent-crew:review-proposal` | Multi-persona evaluation of a technical proposal |
+| `/agent-crew:technical-discovery` | Maps an ambiguous problem space before design begins |
+| `/agent-crew:feature-design` | Shapes a feature into a buildable specification |
+| `/agent-crew:architecture-design` | Designs new systems or significant architectural changes |
+| `/agent-crew:project-planning` | Prioritised plan for a sprint, quarter, or roadmap segment |
+| `/agent-crew:mobile-feature-design` | Feature design extended with platform, app store, and offline concerns |
+| `/agent-crew:mobile-implementation-review` | Mobile implementation readiness across platform, CI/CD, test coverage, and security |
+| `/agent-crew:release-planning` | Release plan with go/no-go verdict, rollback plan, and communication plan |
+| `/agent-crew:security-review` | Code-level security and standards review; returns P0–P4 findings report per the code review severity standard |
+
+(In legacy CLAUDE.md-import setups the commands are the bare, un-namespaced forms: `/review-proposal`, etc. The namespaced form also avoids colliding with Claude Code's built-in `/security-review`.)
 
 Modifiers adjust how a persona weights and communicates its concerns:
 
 ```
-/review-proposal [architect:cautious] [dev:pragmatist]
+/agent-crew:review-proposal [architect:cautious] [dev:pragmatist]
 ```
+
+## Unattended runs
+
+Leaving an agent to work for hours without a human watching needs three things the library did not have: a trigger that survives the session ending, a log that says whether the run is dead or sleeping, and a budget in the unit that actually runs out. `docs/unattended-runs.md` is the operator guide, `standards/unattended-run-readiness.md` is the gate checklist, and `scripts/` plus `templates/` are the mechanics — all optional, all standard-library Python, nothing to install.
+
+The short version: **no scheduling mechanism inside a Claude Code session survives that session ending**, including both forms of `/loop`. The trigger has to come from the OS scheduler (works on every plan) or a cloud routine (where the account has one), and neither grants immunity to usage limits — they convert a stop into a delay.
 
 ## Structure
 
 ```
 agent-crew/
-  CLAUDE.md                        ← Claude bootstrap (imported by your project)
-  agents/
+  .claude-plugin/
+    plugin.json                    ← plugin manifest
+    marketplace.json               ← self-hosted marketplace (source: "./")
+  CLAUDE.md                        ← checkout sessions + legacy-import index
+  crew/
     stable/                        ← Individual persona definitions
       junior-developer.md
       senior-developer.md
@@ -144,44 +119,62 @@ agent-crew/
       purist.md
       cautious.md
       move-fast.md
-  skills/                          ← Invocable slash-command definitions
-    _conventions.md                ← shared skill protocol
-    review-proposal.md
-    technical-discovery.md
-    feature-design.md
-    architecture-design.md
-    project-planning.md
-    mobile-feature-design.md
-    mobile-implementation-review.md
-    release-planning.md
-    security-review.md
+  skills/                          ← Invocable skills (one directory per command)
+    _conventions.md                ← shared skill protocol, loaded with every skill
+    review-proposal/SKILL.md
+    technical-discovery/SKILL.md
+    feature-design/SKILL.md
+    architecture-design/SKILL.md
+    project-planning/SKILL.md
+    mobile-feature-design/SKILL.md
+    mobile-implementation-review/SKILL.md
+    release-planning/SKILL.md
+    security-review/SKILL.md
   standards/                       ← Named reference standards cited by teams and skills
     code-review-severity.md        ← finding classification: P0–P4 ↔ Blocker–Info, CVSS for security
     review-verdicts.md             ← fixed verdict scale: Proceed / with conditions / Do not proceed
     risk-assessment.md             ← likelihood/impact rating, dispositions, risk acceptance records
     mobile-release-readiness.md    ← app store submission checklist, review-window risk calculus
+    unattended-run-readiness.md    ← gates for a run left working without a human watching
+  scripts/                         ← optional helpers for unattended runs (stdlib Python, no install)
+    runlog.py                      ← write-ahead run log; `status --json` for tooling
+    watchdog.py                    ← restarts a stalled run; fired by the OS scheduler
+    preflight.py                   ← environment assertions, declared per project
+    install-watchdog-*.{ps1,sh}    ← Scheduled Task / cron registration, both with --dry-run
+  templates/                       ← fill-in-the-blanks documents
+    unattended-run-brief.md        ← the run prompt
+    resume-prompt.md               ← what the watchdog sends on recovery
+    preflight.example.json         ← starting point for the assertions
   docs/
     optimization-plan.md           ← analysis & roadmap
+    unattended-runs.md             ← operator guide for long runs
+    reviews/                       ← decision records produced with agent-crew itself
 ```
+
+Note: the personas directory is `crew/`, not `agents/` — `agents/` has reserved meaning in the Claude Code plugin layout (subagent definitions), and these personas are reference material for skills, not standalone subagents.
 
 ## Extending
 
 ### Adding a persona
 
-Copy any file in `agents/stable/` as a template. Define: role and domain, perspective and priorities, what they push back on, and how they communicate.
+Copy any file in `crew/stable/` as a template. Define: role and domain, perspective and priorities, what they push back on, and how they communicate.
 
 ### Adding a team
 
-Create a file in `agents/teams/`. Define: which personas participate, the interaction model (sequential, parallel, synthesised), and who produces the final output.
+Create a file in `crew/teams/`. Define: which personas participate, the interaction model (sequential, parallel, synthesised), and who produces the final output.
 
 ### Adding a modifier
 
-Create a file in `agents/modifiers/`. Define: which dimension it operates on (disposition, methodology, risk appetite), what it changes about a persona's behaviour, what it does *not* change, and which other modifiers it is mutually exclusive with.
+Create a file in `crew/modifiers/`. Define: which dimension it operates on (disposition, methodology, risk appetite), what it changes about a persona's behaviour, what it does *not* change, and which other modifiers it is mutually exclusive with.
 
 ### Adding a skill
 
-Create a file in `skills/`. Define: the slash command name, which team to use, how to gather context, the interaction model (may override the team default), and output format.
+Create `skills/<command>/SKILL.md` with `name` and `description` YAML frontmatter — the description is the triggering mechanism, so make it verbose and trigger-phrase-heavy ("Use when asked to…", plus the phrasings people actually say). Define: which team to use, how to gather context, the interaction model (may override the team default), and output format. Reference shared material (`crew/`, `standards/`, `skills/_conventions.md`) by repo-root-relative path; those resolve from the plugin root when installed. Add the skill to `CLAUDE.md`'s index (for legacy imports) and the table above.
 
 ### Adding a standard
 
 Create a file in `standards/`. Define a self-contained reference (classification scale, protocol, convention) that multiple teams or skills can cite by path instead of defining inline. Standards are authoritative for what they define; teams and skills deviate only via explicitly declared overrides.
+
+## Releasing a new version
+
+Bump `version` in both `.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json`, then push to `main`. Consumers pick it up with `/plugin marketplace update agent-crew`. Validate before pushing: `claude plugin validate .claude-plugin/plugin.json` and `claude plugin validate .`.

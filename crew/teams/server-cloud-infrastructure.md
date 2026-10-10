@@ -1,0 +1,76 @@
+# Team: Server / Cloud Infrastructure
+
+## Purpose
+
+A specialist team focused on server topology, cloud architecture, multi-environment infrastructure design, network architecture, reliability engineering, and infrastructure governance. Engaged when the work involves designing, reviewing, or evolving the infrastructure that runs software in non-development environments — staging, production, and everything in between.
+
+Scope includes: cloud architecture (IaaS, PaaS, serverless), network design and segmentation, multi-environment topology (staging, pre-production, production), disaster recovery and failover design, infrastructure as code, resource governance and cost architecture, and infrastructure security posture.
+
+Distinct from the Dev Environments team in that it focuses on server and cloud infrastructure rather than developer-facing environments. Distinct from the DevOps / Automation team in that it focuses on infrastructure design rather than build and pipeline automation.
+
+## Members
+
+| Persona | File | Role in this team |
+|---|---|---|
+| Systems / Infrastructure Engineer | `crew/stable/systems-infrastructure-engineer.md` | Lead voice; infrastructure architecture, network design, environment topology, reliability |
+| DevOps / Platform Engineer | `crew/stable/devops-platform-engineer.md` | Deployment pipeline integration, observability infrastructure, operational readiness |
+| Security Engineer | `crew/stable/security-engineer.md` | Infrastructure security posture, network security, IAM, compliance at the platform layer |
+| Devil's Advocate | `crew/stable/devils-advocate.md` | Stress-tests infrastructure design assumptions; surfaces failure modes and optimistic thinking about reliability, cost, and operational complexity |
+
+## Optional members
+
+| Persona | File | When to include |
+|---|---|---|
+| Domain Expert | `crew/stable/domain-expert.md` | When domain-specific compliance or infrastructure requirements apply (e.g. healthcare data residency, financial services availability requirements) |
+| Build & Toolchain Engineer | `crew/stable/build-toolchain-engineer.md` | When infrastructure-as-code toolchain design is a primary concern |
+| Tech Lead | `crew/stable/tech-lead.md` | When infrastructure decisions have significant application architecture implications |
+
+## Default interaction model
+
+This team operates in a **lead analysis → specialist input → stress test → cross-examination → synthesis** model. Infrastructure decisions are high-stakes and hard to reverse, warranting both rigorous specialist input and explicit adversarial challenge before synthesis.
+
+### 1. Context intake
+All personas review the infrastructure proposal, architecture diagram, or design brief.
+
+### 2. Lead analysis
+**Systems / Infrastructure Engineer** provides the primary analysis: infrastructure architecture, network topology, environment design, reliability posture, infrastructure-as-code coverage, and resource governance.
+
+### 3. Specialist input
+In order:
+
+1. **DevOps / Platform Engineer** — deployment pipeline integration with the proposed infrastructure, observability infrastructure design, operational runbook implications, incident response and recovery procedures
+2. **Security Engineer** — infrastructure threat model, network security posture, IAM design, secrets management at the platform layer, compliance implications, and security controls at each infrastructure layer
+
+### 4. Stress test
+**Devil's Advocate** reviews the lead analysis and specialist input and stress-tests the design: challenges assumptions about reliability, cost, operational complexity, and failure modes; questions whether single points of failure have been fully identified; asks what happens when the design meets reality.
+
+### 5. Cross-examination
+The Security Engineer and Systems / Infrastructure Engineer address each other's key concerns directly. Infrastructure design and security posture are deeply interdependent — conflicts or tensions between them must be resolved explicitly, not left as parallel concerns.
+
+The DevOps / Platform Engineer addresses any operational concerns raised by the security or infrastructure analysis.
+
+All three address the Devil's Advocate's key stress-test findings: which concerns are valid and how they will be mitigated, and which are acceptable risks.
+
+### 6. Synthesis
+The **Systems / Infrastructure Engineer** produces the final assessment:
+- Infrastructure design: what is sound, what needs revision
+- Security posture: gaps and required mitigations (drawing on Security Engineer input)
+- Reliability assessment: single points of failure, recovery design, observability coverage
+- Infrastructure-as-code coverage: what is defined in code, what is manual
+- Cost and resource governance assessment
+- Risks surfaced by the Devil's Advocate: resolved / accepted / requires redesign
+- Overall verdict per `standards/review-verdicts.md`: **Proceed to production** / **Proceed with conditions** / **Do not proceed**
+
+## Interaction model overrides
+
+- Skills focused specifically on infrastructure security review may elevate the Security Engineer to co-lead alongside the Systems / Infrastructure Engineer
+- When Domain Expert is activated, they provide input after the Security Engineer, focusing on domain-specific compliance and infrastructure requirements
+- For lightweight infrastructure reviews (e.g. adding a single service to an established architecture), the stress test and cross-examination steps may be collapsed
+
+## Notes
+
+- Risk dispositions follow `standards/risk-assessment.md` — the Security Engineer's "must fix before shipping" infrastructure items are hard gates; no production deployment proceeds with open critical infrastructure security findings
+- Disaster recovery is not optional — every production infrastructure design must include a defined RTO, RPO, and the infrastructure to meet them
+- Infrastructure-as-code is the expected standard — manual infrastructure must be explicitly justified and carries a documentation and reproducibility debt that must be tracked
+- Cost governance is a first-class concern, not an afterthought — ungoverned cloud resource growth is a reliability and financial risk
+- The Devil's Advocate is particularly valuable here: infrastructure decisions are hard to reverse and the blast radius of a wrong decision is large

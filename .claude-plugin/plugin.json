@@ -1,0 +1,13 @@
+{
+  "name": "agent-crew",
+  "displayName": "Agent Crew",
+  "version": "1.0.0",
+  "description": "A reusable system of personas, teams, modifiers, and standards for multi-perspective reviews, design sessions, and planning: define who is involved and how they interact once, then invoke by name.",
+  "author": {
+    "name": "dakmh",
+    "url": "https://github.com/dakmh"
+  },
+  "repository": "https://github.com/dakmh/agent-crew",
+  "license": "MIT",
+  "keywords": ["personas", "review", "planning", "design", "multi-perspective"]
+}
